@@ -9,9 +9,9 @@ namespace AniconAppAspNET.Models
     {
         public int Deliv_Cod { get; set; }
 
-        public int Ped_ID { get; set; }
+        public int fkPed_ID { get; set; }
 
-        public string Cep { get; set; }
+        public string fkCep { get; set; }
 
         public DateTime Deliv_Data { get; set; }
 

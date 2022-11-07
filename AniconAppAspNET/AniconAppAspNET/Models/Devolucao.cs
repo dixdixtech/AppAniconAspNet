@@ -9,9 +9,9 @@ namespace AniconAppAspNET.Models
     {
         public int Devol_Cod { get; set; }
 
-        public int Ped_Cod { get; set; }
+        public int fkPed_Cod { get; set; }
 
-        public int Deliv_Cod { get; set; }
+        public int fkDeliv_Cod { get; set; }
 
         public double Devol_ValReem { get; set; }
        

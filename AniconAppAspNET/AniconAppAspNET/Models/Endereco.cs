@@ -9,11 +9,11 @@ namespace AniconAppAspNET.Models
     {
         public string Cep { get; set; }
 
-        public int Estado_Id { get; set; }
+        public int fkEstado_Id { get; set; }
 
-        public int Cidade_Id { get; set; }
+        public int fkCidade_Id { get; set; }
 
-        public int Bairro_Id { get; set; }
+        public int fkBairro_Id { get; set; }
 
         public string Logradouro { get; set; }
 

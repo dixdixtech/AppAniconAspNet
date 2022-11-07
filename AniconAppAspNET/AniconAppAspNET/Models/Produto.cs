@@ -9,7 +9,8 @@ namespace AniconAppAspNET.Models
     {
         public int Prod_Cod { get; set; }
 
-        public int Categ_Id { get; set; }
+        public int fkCateg_Id { get; set; }
+
         public string Prod_Nome { get; set; }
 
         public DateTime Prod_Garant { get; set; }

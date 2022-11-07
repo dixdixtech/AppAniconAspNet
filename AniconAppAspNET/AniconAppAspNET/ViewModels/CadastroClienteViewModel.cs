@@ -4,33 +4,30 @@ using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
 
-namespace AniconAppAspNET.Models
+namespace AniconAppAspNET.ViewModels
 {
-    public class Cliente
+    public class CadastroClienteViewModel
     {
-        public int Cli_ID { get; set; }
-
-        public string fkCep { get; set; }
-
-        public int fkTel_Id { get; set; }
-
-        [Required]
-        [MaxLength(100)]
+        
+        [Display(Name = "Nome")] 
         public string Cli_Nome { get; set; }
 
-        [MaxLength(100)]
         public string Cli_NomeSoc { get; set; }
-        
+
         public string Cli_Email { get; set; }
 
         public string Cli_Senha { get; set; }
 
-        public DateTime Cli_DataNasc {  get; set; }
+        public string ConfirmarSenha { get; set; }
+
+        public string Cep { get; set; }
+
+        public int Telefone { get; set; }
+
+        public DateTime Cli_DataNasc { get; set; }
 
         public string Cli_Cpf { get; set; }
 
         public string Cli_Sexo { get; set; }
-
-    
     }
 }

@@ -9,6 +9,7 @@ namespace AniconAppAspNET.Models
     {
 
         public int Tel_Id { get; set; }
+
         public string Tel_Num { get; set; }
 
         public string Tel_Tipo { get; set; }
