@@ -13,6 +13,12 @@ namespace AniconAppAspNET.Controllers
             return View();
         }
 
-        
+        public ActionResult Teste()
+        {
+            return View();
+        }
+
+
+
     }
 }

@@ -14,11 +14,9 @@ namespace AniconAppAspNET.Models
 
         public int fkTel_Id { get; set; }
 
-        [Required]
-        [MaxLength(100)]
+        
         public string Cli_Nome { get; set; }
 
-        [MaxLength(100)]
         public string Cli_NomeSoc { get; set; }
         
         public string Cli_Email { get; set; }
