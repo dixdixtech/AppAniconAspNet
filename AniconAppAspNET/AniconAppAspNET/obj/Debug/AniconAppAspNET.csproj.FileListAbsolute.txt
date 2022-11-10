@@ -192,3 +192,4 @@ C:\Users\3etimds\Documents\GitHub\ANICONNN\AppAniconAspNet\AniconAppAspNET\Anico
 C:\Users\3etimds\Documents\GitHub\ANICONNN\AppAniconAspNet\AniconAppAspNET\AniconAppAspNET\bin\Microsoft.Owin.Security.xml
 C:\Users\3etimds\Documents\GitHub\ANICONNN\AppAniconAspNet\AniconAppAspNET\AniconAppAspNET\bin\Microsoft.Owin.Security.Cookies.xml
 C:\Users\3etimds\Documents\GitHub\ANICONNN\AppAniconAspNet\AniconAppAspNET\AniconAppAspNET\bin\MySql.Data.xml
+C:\Users\3etimds\Documents\GitHub\ANICONNN\AppAniconAspNet\AniconAppAspNET\AniconAppAspNET\bin\System.Numerics.Vectors.dll
