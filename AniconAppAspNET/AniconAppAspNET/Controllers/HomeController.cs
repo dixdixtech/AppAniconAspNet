@@ -18,6 +18,17 @@ namespace AniconAppAspNET.Controllers
             return View();
         }
 
+        public ActionResult Produtos()
+        {
+            return View();
+        }
+
+        public ActionResult Perfil()
+        {
+            return View();
+        }
+
+
 
 
     }

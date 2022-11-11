@@ -1,4 +1,4 @@
-﻿/*body {
+﻿body {
     background: #ffffff;
     font-family: "Open Sans", sans-serif;
 }
@@ -185,7 +185,7 @@ h2 {
 .star-rating i {
     font-size: 14px;
     color: #ffc000;
-}*/
+}
 
 .bd-placeholder-img {
     font-size: 1.125rem;
@@ -201,7 +201,7 @@ h2 {
     }
 }
 
-.b-example-divider {
+/*.b-example-divider {
     height: 3rem;
     background-color: rgba(0, 0, 0, .1);
     border: solid rgba(0, 0, 0, .15);
@@ -236,4 +236,4 @@ h2 {
         text-align: center;
         white-space: nowrap;
         -webkit-overflow-scrolling: touch;
-    }
+    }*/

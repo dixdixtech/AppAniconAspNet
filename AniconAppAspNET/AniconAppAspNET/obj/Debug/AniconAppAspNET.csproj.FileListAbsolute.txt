@@ -193,7 +193,6 @@ C:\Users\3etimds\Documents\GitHub\ANICONNN\AppAniconAspNet\AniconAppAspNET\Anico
 C:\Users\3etimds\Documents\GitHub\ANICONNN\AppAniconAspNet\AniconAppAspNET\AniconAppAspNET\bin\Microsoft.Owin.Security.Cookies.xml
 C:\Users\3etimds\Documents\GitHub\ANICONNN\AppAniconAspNet\AniconAppAspNET\AniconAppAspNET\bin\MySql.Data.xml
 C:\Users\3etimds\Documents\GitHub\ANICONNN\AppAniconAspNet\AniconAppAspNET\AniconAppAspNET\bin\System.Numerics.Vectors.dll
-C:\Users\3etimds\Documents\GitHub\AppAniconAspNet\AniconAppAspNET\AniconAppAspNET\bin\MySql.Data.dll
 C:\Users\3etimds\Documents\GitHub\AppAniconAspNet\AniconAppAspNET\AniconAppAspNET\bin\Google.Protobuf.dll
 C:\Users\3etimds\Documents\GitHub\AppAniconAspNet\AniconAppAspNET\AniconAppAspNET\bin\System.Memory.dll
 C:\Users\3etimds\Documents\GitHub\AppAniconAspNet\AniconAppAspNET\AniconAppAspNET\bin\System.Numerics.Vectors.dll
