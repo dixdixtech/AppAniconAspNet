@@ -39,12 +39,12 @@ namespace AniconAppAspNET.ViewModels
 
         [Display(Name = "CEP")]
         [Required(ErrorMessage = "O CEP é obrigatório")]
-        [StringLength(8, ErrorMessage = "O CEP deve possuir 8 números")]
+        [RegularExpression(@"^\d{5}-\d{3}$", ErrorMessage ="Preencha um CEP válido, ex.: 12345-678")]
         public string Cep { get; set; }
 
         [Required(ErrorMessage = "O telefone é obrigatório")]
-        [StringLength(11, ErrorMessage = "O telefone deve possuir 11 números")]
-        public int Telefone { get; set; }
+        [RegularExpression(@"^\(?[1-9]{2}\)? ?(?:[2-8]|9[1-9])[0-9]{3}\-?[0-9]{4}$", ErrorMessage ="O telefone deve ter essa estrutura:(xx)xxxxx-xxxx")]
+        public string Telefone { get; set; }
 
         [Required(ErrorMessage = "A data de nascimento é obrigatória")]
         [DataType(DataType.Date)]
@@ -53,7 +53,7 @@ namespace AniconAppAspNET.ViewModels
 
 
         [Required(ErrorMessage = "O CPF é obrigatório")]
-        [StringLength(11, ErrorMessage = "O CPF deve possuir 11 números")]
+        [RegularExpression(@"([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})", ErrorMessage ="Preencha um CPF válido, ex.:123.456.789-00")]
         [Display(Name = "CPF")]
         public string Cli_Cpf { get; set; }
 
@@ -63,7 +63,7 @@ namespace AniconAppAspNET.ViewModels
 
         [Required(ErrorMessage ="O Logradouro é obrigatório")]
         [MinLength(1, ErrorMessage ="Favor inserir o Logradouro")]
-        [MaxLength(100, ErrorMessage ="O Logradouro deve ter até 100 caracteres")]
+        [MaxLength(150, ErrorMessage ="O Logradouro deve ter até 100 caracteres")]
         public string Logradouro { get; set; }
 
         [Required(ErrorMessage = "O bairro é obrigatório")]
