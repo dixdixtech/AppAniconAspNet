@@ -197,3 +197,4 @@ C:\Users\3etimds\Documents\GitHub\AppAniconAspNet\AniconAppAspNET\AniconAppAspNE
 C:\Users\3etimds\Documents\GitHub\AppAniconAspNet\AniconAppAspNET\AniconAppAspNET\bin\System.Memory.dll
 C:\Users\3etimds\Documents\GitHub\AppAniconAspNet\AniconAppAspNET\AniconAppAspNET\bin\System.Numerics.Vectors.dll
 C:\Users\3etimds\Documents\GitHub\AppAniconAspNet\AniconAppAspNET\AniconAppAspNET\bin\MySql.Data.xml
+C:\Users\3etimds\Documents\GitHub\AppAniconAspNet\AniconAppAspNET\AniconAppAspNET\bin\MySql.Data.dll

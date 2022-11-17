@@ -48,15 +48,17 @@ namespace AniconAppAspNET.ViewModels
 
         [Required(ErrorMessage = "A data de nascimento é obrigatória")]
         [DataType(DataType.Date)]
+        [Display(Name ="Data de Nascimento")]
         public DateTime Cli_DataNasc { get; set; }
 
 
         [Required(ErrorMessage = "O CPF é obrigatório")]
         [StringLength(11, ErrorMessage = "O CPF deve possuir 11 números")]
-
+        [Display(Name = "CPF")]
         public string Cli_Cpf { get; set; }
 
         [Required(ErrorMessage = "O campo sexo é obrigatório")]
+        [Display(Name = "Sexo")]
         public string Cli_Sexo { get; set; }
 
         [Required(ErrorMessage ="O Logradouro é obrigatório")]
