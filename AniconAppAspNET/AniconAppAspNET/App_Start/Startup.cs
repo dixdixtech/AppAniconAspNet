@@ -3,6 +3,7 @@ using Owin;
 using System;
 using System.Threading.Tasks;
 using Microsoft.Owin.Security.Cookies;
+using System.Web.Helpers;
 
 [assembly: OwinStartup(typeof(AniconAppAspNET.App_Start.Startup))]
 
@@ -17,6 +18,8 @@ namespace AniconAppAspNET.App_Start
                 AuthenticationType = "AppAplicationCookie",
                 LoginPath = new PathString("/Autenticacao/Login")
             });
+
+            AntiForgeryConfig.UniqueClaimTypeIdentifier = "Login";
         }
     }
 }

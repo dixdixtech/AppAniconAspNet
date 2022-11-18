@@ -1,5 +1,7 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 
@@ -21,6 +23,8 @@ namespace AniconAppAspNET.Models
 
         public string Prod_Img { get; set; }
 
-       
+
+        MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["conexao"].ConnectionString);
+        MySqlCommand command = new MySqlCommand();
     }
 }
