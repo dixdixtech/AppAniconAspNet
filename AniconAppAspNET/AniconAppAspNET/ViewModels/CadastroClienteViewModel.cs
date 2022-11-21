@@ -9,7 +9,11 @@ namespace AniconAppAspNET.ViewModels
 {
     public class CadastroClienteViewModel
     {
-        
+        [Required(ErrorMessage = "O CPF é obrigatório")]
+        [RegularExpression(@"([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})", ErrorMessage = "Preencha um CPF válido, ex.:123.456.789-00")]
+        [Display(Name = "CPF")]
+        public string Cli_Cpf { get; set; }
+
         [Display(Name = "Nome")]
         [Required(ErrorMessage = "O nome é obrigatório")]
         [MaxLength(100)]
@@ -37,51 +41,51 @@ namespace AniconAppAspNET.ViewModels
         [Compare(nameof(Cli_Senha), ErrorMessage = "As senhas são diferentes")]
         public string ConfirmarSenha { get; set; }
 
-        [Display(Name = "CEP")]
-        [Required(ErrorMessage = "O CEP é obrigatório")]
-        [RegularExpression(@"^\d{5}-\d{3}$", ErrorMessage ="Preencha um CEP válido, ex.: 12345-678")]
-        public string Cep { get; set; }
-
-        [Required(ErrorMessage = "O telefone é obrigatório")]
-        [RegularExpression(@"^\(?[1-9]{2}\)? ?(?:[2-8]|9[1-9])[0-9]{3}\-?[0-9]{4}$", ErrorMessage ="O telefone deve ter essa estrutura:(xx)xxxxx-xxxx")]
-        public string Telefone { get; set; }
-
         [Required(ErrorMessage = "A data de nascimento é obrigatória")]
         [DataType(DataType.Date)]
-        [Display(Name ="Data de Nascimento")]
+        [Display(Name = "Data de Nascimento")]
         public DateTime Cli_DataNasc { get; set; }
-
-
-        [Required(ErrorMessage = "O CPF é obrigatório")]
-        [RegularExpression(@"([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})", ErrorMessage ="Preencha um CPF válido, ex.:123.456.789-00")]
-        [Display(Name = "CPF")]
-        public string Cli_Cpf { get; set; }
 
         [Required(ErrorMessage = "O campo sexo é obrigatório")]
         [Display(Name = "Sexo")]
         public string Cli_Sexo { get; set; }
 
-        [Required(ErrorMessage ="O Logradouro é obrigatório")]
-        [MinLength(1, ErrorMessage ="Favor inserir o Logradouro")]
-        [MaxLength(150, ErrorMessage ="O Logradouro deve ter até 100 caracteres")]
-        public string Logradouro { get; set; }
+        [Required(ErrorMessage = "O telefone é obrigatório")]
+        [RegularExpression(@"^\(?[1-9]{2}\)? ?(?:[2-8]|9[1-9])[0-9]{3}\-?[0-9]{4}$", ErrorMessage = "O telefone deve ter essa estrutura:(xx)xxxxx-xxxx")]
+        public string Telefone { get; set; }
 
-        [Required(ErrorMessage = "O bairro é obrigatório")]
-        [MinLength(1, ErrorMessage = "Favor inserir o bairro")]
-        [MaxLength(100, ErrorMessage = "O Bairro deve ter até 100 caracteres")]
-        public string Bairro { get; set; }
-
-        [Required(ErrorMessage = "A cidade é obrigatória")]
-        [MinLength(1, ErrorMessage = "Favor inserir a Cidade")]
-        [MaxLength(100, ErrorMessage = "A cidade deve ter até 100 caracteres")]
-        public string Cidade { get; set; }
-
+        [Display(Name = "CEP")]
+        [Required(ErrorMessage = "O CEP é obrigatório")]
+        [RegularExpression(@"^\d{5}-\d{3}$", ErrorMessage ="Preencha um CEP válido, ex.: 12345-678")]
+        public string Cep { get; set; }
 
         [Required(ErrorMessage = "O estado é obrigatório")]
         [MinLength(1, ErrorMessage = "Favor inserir o Estado")]
         [MaxLength(100, ErrorMessage = "O Estado deve ter até 100 caracteres")]
         public string Estado { get; set; }
 
+        
+        [Required(ErrorMessage = "A cidade é obrigatória")]
+        [MinLength(1, ErrorMessage = "Favor inserir a Cidade")]
+        [MaxLength(100, ErrorMessage = "A cidade deve ter até 100 caracteres")]
+        public string Cidade { get; set; }
 
+        [Required(ErrorMessage = "O bairro é obrigatório")]
+        [MinLength(1, ErrorMessage = "Favor inserir o bairro")]
+        [MaxLength(100, ErrorMessage = "O Bairro deve ter até 100 caracteres")]
+        public string Bairro { get; set; }
+
+        [Required(ErrorMessage = "O Logradouro é obrigatório")]
+        [MinLength(1, ErrorMessage = "Favor inserir o Logradouro")]
+        [MaxLength(150, ErrorMessage = "O Logradouro deve ter até 100 caracteres")]
+        public string Logradouro { get; set; }
+
+        [Required(ErrorMessage = "O número da residência é obrigatório")]
+        [MinLength(1, ErrorMessage = "Favor inserir o número")]
+        public int NumRes { get; set; }
+
+        [Required(ErrorMessage = "O complemento é obrigatório")]
+        [MinLength(1, ErrorMessage = "Favor inserir o complemento")]
+        public int Complemento { get; set; }
     }
 }
