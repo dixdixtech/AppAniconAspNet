@@ -52,7 +52,7 @@ namespace AniconAppAspNET.ViewModels
 
         [Required(ErrorMessage = "O telefone é obrigatório")]
         [RegularExpression(@"^\(?[1-9]{2}\)? ?(?:[2-8]|9[1-9])[0-9]{3}\-?[0-9]{4}$", ErrorMessage = "O telefone deve ter essa estrutura:(xx)xxxxx-xxxx")]
-        public string Telefone { get; set; }
+        public string Tel_Num { get; set; }
 
         [Display(Name = "CEP")]
         [Required(ErrorMessage = "O CEP é obrigatório")]
@@ -62,18 +62,18 @@ namespace AniconAppAspNET.ViewModels
         [Required(ErrorMessage = "O estado é obrigatório")]
         [MinLength(1, ErrorMessage = "Favor inserir o Estado")]
         [MaxLength(100, ErrorMessage = "O Estado deve ter até 100 caracteres")]
-        public string Estado { get; set; }
+        public string Estado_Nome { get; set; }
 
         
         [Required(ErrorMessage = "A cidade é obrigatória")]
         [MinLength(1, ErrorMessage = "Favor inserir a Cidade")]
         [MaxLength(100, ErrorMessage = "A cidade deve ter até 100 caracteres")]
-        public string Cidade { get; set; }
+        public string Cidade_Nome { get; set; }
 
         [Required(ErrorMessage = "O bairro é obrigatório")]
         [MinLength(1, ErrorMessage = "Favor inserir o bairro")]
         [MaxLength(100, ErrorMessage = "O Bairro deve ter até 100 caracteres")]
-        public string Bairro { get; set; }
+        public string Bairro_Nome { get; set; }
 
         [Required(ErrorMessage = "O Logradouro é obrigatório")]
         [MinLength(1, ErrorMessage = "Favor inserir o Logradouro")]
@@ -82,10 +82,10 @@ namespace AniconAppAspNET.ViewModels
 
         [Required(ErrorMessage = "O número da residência é obrigatório")]
         [MinLength(1, ErrorMessage = "Favor inserir o número")]
-        public int NumRes { get; set; }
+        public int Num_Res { get; set; }
 
         [Required(ErrorMessage = "O complemento é obrigatório")]
         [MinLength(1, ErrorMessage = "Favor inserir o complemento")]
-        public int Complemento { get; set; }
+        public string Complemento { get; set; }
     }
 }
