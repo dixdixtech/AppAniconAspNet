@@ -5,6 +5,7 @@ using System.Web;
 using System.ComponentModel.DataAnnotations;
 using AniconAppAspNET.Models;
 
+
 namespace AniconAppAspNET.ViewModels
 {
     public class CadastroClienteViewModel
@@ -26,6 +27,7 @@ namespace AniconAppAspNET.ViewModels
         [Display(Name = "Email")]
         [Required(ErrorMessage = "O email é obrigatório")]
         [MaxLength(100)]
+        [System.Web.Mvc.Remote("SelectEmail", "Autenticacao", ErrorMessage="O login já existe!")]
         public string Cli_Email { get; set; }
 
         [Display(Name = "Senha")]
@@ -42,7 +44,7 @@ namespace AniconAppAspNET.ViewModels
         public string ConfirmarSenha { get; set; }
 
         [Required(ErrorMessage = "A data de nascimento é obrigatória")]
-        [DataType(DataType.Date)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         [Display(Name = "Data de Nascimento")]
         public DateTime Cli_DataNasc { get; set; }
 
@@ -50,6 +52,7 @@ namespace AniconAppAspNET.ViewModels
         [Display(Name = "Sexo")]
         public string Cli_Sexo { get; set; }
 
+        [Display(Name = "Telefone")]
         [Required(ErrorMessage = "O telefone é obrigatório")]
         [RegularExpression(@"^\(?[1-9]{2}\)? ?(?:[2-8]|9[1-9])[0-9]{3}\-?[0-9]{4}$", ErrorMessage = "O telefone deve ter essa estrutura:(xx)xxxxx-xxxx")]
         public string Tel_Num { get; set; }
@@ -59,17 +62,19 @@ namespace AniconAppAspNET.ViewModels
         [RegularExpression(@"^\d{5}-\d{3}$", ErrorMessage ="Preencha um CEP válido, ex.: 12345-678")]
         public string Cep { get; set; }
 
+        [Display(Name = "Estado")]
         [Required(ErrorMessage = "O estado é obrigatório")]
         [MinLength(1, ErrorMessage = "Favor inserir o Estado")]
         [MaxLength(100, ErrorMessage = "O Estado deve ter até 100 caracteres")]
         public string Estado_Nome { get; set; }
 
-        
+        [Display(Name = "Cidade")]
         [Required(ErrorMessage = "A cidade é obrigatória")]
         [MinLength(1, ErrorMessage = "Favor inserir a Cidade")]
         [MaxLength(100, ErrorMessage = "A cidade deve ter até 100 caracteres")]
         public string Cidade_Nome { get; set; }
 
+        [Display(Name = "Bairro")]
         [Required(ErrorMessage = "O bairro é obrigatório")]
         [MinLength(1, ErrorMessage = "Favor inserir o bairro")]
         [MaxLength(100, ErrorMessage = "O Bairro deve ter até 100 caracteres")]
@@ -80,11 +85,11 @@ namespace AniconAppAspNET.ViewModels
         [MaxLength(150, ErrorMessage = "O Logradouro deve ter até 100 caracteres")]
         public string Logradouro { get; set; }
 
+        [Display(Name = "Número de Residência")]
         [Required(ErrorMessage = "O número da residência é obrigatório")]
-        [MinLength(1, ErrorMessage = "Favor inserir o número")]
         public int Num_Res { get; set; }
 
-        [Required(ErrorMessage = "O complemento é obrigatório")]
+
         [MinLength(1, ErrorMessage = "Favor inserir o complemento")]
         public string Complemento { get; set; }
     }

@@ -30,39 +30,37 @@ namespace AniconAppAspNET.Controllers
                 Cli_Email = vielModel.Cli_Email,
                 Cli_Senha = vielModel.Cli_Senha,
                 Cli_DataNasc = vielModel.Cli_DataNasc,
-                Cli_Sexo = vielModel.Cli_Sexo
-            };
-
-            Telefone novotelefone = new Telefone
-            {
-                Tel_Num = vielModel.Tel_Num
-            };
-
-            Endereco novoendereco = new Endereco 
-            {
+                Cli_Sexo = vielModel.Cli_Sexo,
+                Tel_Num = vielModel.Tel_Num,
                 Cep = vielModel.Cep,
+                Estado_Nome = vielModel.Estado_Nome,
+                Cidade_Nome = vielModel.Cidade_Nome,
+                Bairro_Nome = vielModel.Bairro_Nome,
                 Logradouro = vielModel.Logradouro,
                 Num_Res = vielModel.Num_Res,
                 Complemento = vielModel.Complemento
-
             };
+            
+            var newcliente = new Cliente();
+            newcliente.InsertCliente(novoCliente);
+            
 
-            Estado novoestado = new Estado
-            {
-                Estado_Nome = vielModel.Estado_Nome
-            };
+            
 
-            Cidade novacidade = new Cidade
-            {
-                Cidade_Nome = vielModel.Cidade_Nome
-            };
+            return RedirectToAction("Index", "Home");
+        }
 
-            Bairro novobairro = new Bairro
-            {
-                Bairro_Nome = vielModel.Bairro_Nome
-            };
+        public ActionResult SelectEmail(string Email)
+        {
+            bool LoginExists;
+ 
+            string login = new Cliente().SelectEmail(Email);
 
-            return View();
+            if (login.Length == 0)
+                LoginExists = false;
+            else
+                LoginExists = true;
+            return Json(!LoginExists, JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult Login()
