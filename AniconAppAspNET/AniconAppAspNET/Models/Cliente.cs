@@ -89,11 +89,11 @@ namespace AniconAppAspNET.Models
 
         }
 
-        public string SelectEmail(string vEmail)
+        public string SelectEmail(string vCli_Email)
         {
             conexao.Open();
-            command.CommandText = "call spSelectEmail(@Email);";
-            command.Parameters.Add("@Email", MySqlDbType.VarChar).Value = vEmail;
+            command.CommandText = "call spSelectEmail(@Cli_Email);";
+            command.Parameters.Add("@Cli_Email", MySqlDbType.VarChar).Value = vCli_Email;
             command.Connection = conexao;
             string Login = (string)command.ExecuteScalar();
             conexao.Close();
