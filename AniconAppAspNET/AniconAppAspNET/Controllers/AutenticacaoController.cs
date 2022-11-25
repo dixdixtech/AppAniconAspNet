@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using AniconAppAspNET.Models;
 using AniconAppAspNET.Utils;
+using System.Security.Claims;
 
 namespace AniconAppAspNET.Controllers
 {
@@ -71,6 +72,42 @@ namespace AniconAppAspNET.Controllers
                 UrlRetorno = ReturnUrl
             };
             return View(viewmodel);
+        }
+
+        [HttpPost]
+        public ActionResult Login(LoginViewModel viewmodel)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(viewmodel);
+            }
+
+            Cliente cliente = new Cliente();
+            cliente = cliente.SelectCliente(viewmodel.Cli_Email);
+
+            if(cliente.Cli_Email != viewmodel.Cli_Email)
+            {
+                ModelState.AddModelError("Cli_Email", "Login Incorreto");
+                return View(viewmodel);
+            }
+            if(cliente.Cli_Senha != Hash.GerarHash(viewmodel.Cli_Senha))
+            {
+                ModelState.AddModelError("Cli_Senha", "Senha Incorreta");
+                return View(viewmodel);
+            }
+
+            var identity = new ClaimsIdentity(new[]
+            {
+                new Claim(ClaimTypes.Name, cliente.Cli_Email),
+                new Claim("Cli_Email", cliente.Cli_Email)
+            }, "AppAplicationCookie");
+
+            Request.GetOwinContext().Authentication.SignIn(identity);
+
+            if (!string.IsNullOrWhiteSpace(viewmodel.UrlRetorno) || Url.IsLocalUrl(viewmodel.UrlRetorno))
+                return Redirect(viewmodel.UrlRetorno);
+            else
+                return RedirectToAction("Index", "Home");
         }
     }
 }

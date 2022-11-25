@@ -70,4 +70,8 @@ select * from Funcionario;
 drop procedure addVenda;
 
 call spSelectEmail('kupyskii@gmail.com');
+call spSelectCliente('vegeta@gmail.com');
+call spUpdateSenha('kupyskii@gmail.com', 'kaio1234');
 select * from Cliente;
+use dbdix;
+truncate Cliente;

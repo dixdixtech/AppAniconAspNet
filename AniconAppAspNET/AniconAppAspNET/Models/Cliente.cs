@@ -101,5 +101,40 @@ namespace AniconAppAspNET.Models
                 Login = "";
             return Login;
         }
+
+        public Cliente SelectCliente(string vEmail)
+        {
+            conexao.Open();
+            command.CommandText = "call spSelectCliente(@Cli_Email);";
+            command.Parameters.Add("@Cli_Email", MySqlDbType.VarChar).Value = vEmail;
+            command.Connection = conexao;
+            var lerCliente = command.ExecuteReader();
+            var tempCliente = new Cliente();
+
+            if (lerCliente.Read())
+            {
+                tempCliente.Cli_Cpf = lerCliente["Cli_Cpf"].ToString();
+                tempCliente.Cli_Nome = lerCliente["Cli_Nome"].ToString();
+                tempCliente.Cli_NomeSoc = lerCliente["Cli_NomeSoc"].ToString();
+                tempCliente.Cli_Email = lerCliente["Cli_Email"].ToString();
+                tempCliente.Cli_Senha = lerCliente["Cli_Senha"].ToString();
+                tempCliente.Cli_DataNasc = DateTime.Parse(lerCliente["Cli_DataNasc"].ToString());
+                tempCliente.Cli_Sexo = lerCliente["Cli_Sexo"].ToString();
+                tempCliente.Tel_Num = lerCliente["Tel_Num"].ToString();
+                tempCliente.Cep = lerCliente["Cep"].ToString();
+                tempCliente.Estado_Nome = lerCliente["Estado_Nome"].ToString();
+                tempCliente.Cidade_Nome = lerCliente["Cidade_Nome"].ToString();
+                tempCliente.Bairro_Nome = lerCliente["Bairro_Nome"].ToString();
+                tempCliente.Logradouro = lerCliente["Logradouro"].ToString();
+                tempCliente.Num_Res = int.Parse(lerCliente["Num_Res"].ToString());
+                tempCliente.Complemento = lerCliente["Complemento"].ToString();
+            };
+            lerCliente.Close();
+            conexao.Close();
+            return tempCliente;
+    
+        } 
+
+
     }
 }

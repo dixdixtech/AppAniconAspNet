@@ -461,6 +461,18 @@ begin
 select Cli_Email from Cliente where Cli_Email = vEmail;
 end$$
 
+Delimiter $$
+create procedure spSelectCliente(vEmail varchar(200))
+begin
+select * from Cliente where Cli_Email = vEmail;
+end$$
+
+Delimiter $$
+create procedure spUpdateSenha(vEmail varchar(200), vSenha varchar(100))
+begin
+update Cliente set Cli_Senha = vSenha where Cli_Email = vEmail;
+end$$
+
 
 
 
