@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using AniconAppAspNET.Models;
+using AniconAppAspNET.Utils;
 
 namespace AniconAppAspNET.Controllers
 {
@@ -28,7 +29,7 @@ namespace AniconAppAspNET.Controllers
                 Cli_Nome = vielModel.Cli_Nome,
                 Cli_NomeSoc = vielModel.Cli_NomeSoc,
                 Cli_Email = vielModel.Cli_Email,
-                Cli_Senha = vielModel.Cli_Senha,
+                Cli_Senha = Hash.GerarHash(vielModel.Cli_Senha),
                 Cli_DataNasc = vielModel.Cli_DataNasc,
                 Cli_Sexo = vielModel.Cli_Sexo,
                 Tel_Num = vielModel.Tel_Num,
@@ -63,9 +64,13 @@ namespace AniconAppAspNET.Controllers
             return Json(!LoginExists, JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult Login()
+        public ActionResult Login(string ReturnUrl)
         {
-            return View();
+            var viewmodel = new LoginViewModel
+            {
+                UrlRetorno = ReturnUrl
+            };
+            return View(viewmodel);
         }
     }
 }
