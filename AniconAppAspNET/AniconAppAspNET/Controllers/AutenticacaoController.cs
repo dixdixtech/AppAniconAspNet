@@ -109,5 +109,11 @@ namespace AniconAppAspNET.Controllers
             else
                 return RedirectToAction("Perfil", "Home");
         }
+        
+        public ActionResult Logout()
+        {
+            Request.GetOwinContext().Authentication.SignOut("AppAplicationCookie");
+            return RedirectToAction("Index", "Home");
+        }
     }
 }

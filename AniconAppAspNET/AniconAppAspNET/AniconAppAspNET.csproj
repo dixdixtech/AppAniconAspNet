@@ -203,7 +203,6 @@
     <Content Include="Views\Autenticacao\UpdateSenha.cshtml" />
     <Content Include="Views\Home\Teste.cshtml" />
     <Content Include="Views\Shared\_LayoutTeste.cshtml" />
-    <Content Include="Views\Home\Produtos.cshtml" />
     <Content Include="Views\Home\Perfil.cshtml" />
     <Content Include="Views\Autenticacao\Insert.cshtml" />
     <Content Include="Views\Autenticacao\Login.cshtml" />
