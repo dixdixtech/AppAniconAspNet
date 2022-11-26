@@ -313,12 +313,10 @@ set vTelId     =  (select Tel_Id from Telefone where Tel_Num = vTel);
  
  
  Delimiter $$
-create procedure addProduto(vProd varchar(100),vCateg varchar(50),vProdGarant varchar(10), vProdVal double,vProdQuantEstoq int(10),vProdDescri varchar(10000),vProdImg varchar(500))
+create procedure addProduto(vProd varchar(100),vCateg varchar(50),vProdGarant datetime, vProdVal double,vProdQuantEstoq int(10),vProdDescri varchar(10000),vProdImg varchar(500))
 begin
 	declare vCategId int;
-    declare vProdGarantConvert date;
     set vCategId = (select Categ_Id from Categoria where Categ_Nome = vCateg);
-    set vProdGarantConvert = STR_TO_DATE(vProdGarant,'%d/%m/%Y');
 
 	if not exists(select Prod_Cod from Produto where Prod_Nome = vProd) then
 		if(vCategId is null) then
@@ -327,7 +325,7 @@ begin
             select 'Categoria Cadastrada';
 		end if;
      insert into Produto(Prod_Nome,Categ_Id,Prod_Garant,Prod_Val,Prod_QuantEstoq,Prod_Img,Prod_Descri)
-				 values (vProd,vCategId,vProdGarantConvert,vProdVal,vProdQuantEstoq,vProdImg,vProdDescri);   
+				 values (vProd,vCategId,vProdGarant,vProdVal,vProdQuantEstoq,vProdImg,vProdDescri);   
         select 'Produto foi cadastrado com sucesso';
     else
 		select 'Produto ja cadastrado';

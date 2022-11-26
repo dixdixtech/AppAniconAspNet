@@ -21,5 +21,17 @@ namespace AniconAppAspNET.Utils
             }
             return result.ToString();
         }
+
+        public static string GenerateMD5(string text)
+        {
+            MD5 md5 = new MD5CryptoServiceProvider();
+            UTF8Encoding encoder = new UTF8Encoding();
+
+            Byte[] originalBytes = encoder.GetBytes(text);
+            Byte[] encodedBytes = md5.ComputeHash(originalBytes);
+
+            text = BitConverter.ToString(encodedBytes).Replace("-", "");
+            return text.ToLower();
+        }
     }
 }

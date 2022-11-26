@@ -155,8 +155,11 @@
     <Compile Include="Models\Venda.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\Hash.cs" />
+    <Compile Include="Utils\ImageCrop.cs" />
+    <Compile Include="ViewModels\Categoria\DropViewCateg.cs" />
     <Compile Include="ViewModels\Cliente\AlterarSenhaViewModel.cs" />
     <Compile Include="ViewModels\Cliente\CadastroClienteViewModel.cs" />
+    <Compile Include="ViewModels\Produto\CadProdViewModel.cs" />
     <Compile Include="ViewModels\Produto\ListAllProdViewModel.cs" />
     <Compile Include="ViewModels\Cliente\LoginViewModel.cs" />
   </ItemGroup>
@@ -167,6 +170,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\css\Estilo.css" />
     <Content Include="Content\css\EstiloTeste.css" />
+    <Content Include="Content\Images\proddefault.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -206,10 +210,10 @@
     <Content Include="Views\Autenticacao\Login.cshtml" />
     <Content Include="Views\Produto\IndexProd.cshtml" />
     <Content Include="Views\Autenticacao\Alterarsenha.cshtml" />
+    <Content Include="Views\Produto\CadProdAnicon.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\Images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
