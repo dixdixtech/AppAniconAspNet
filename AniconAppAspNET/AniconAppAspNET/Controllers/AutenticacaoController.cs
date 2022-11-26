@@ -107,7 +107,7 @@ namespace AniconAppAspNET.Controllers
             if (!string.IsNullOrWhiteSpace(viewmodel.UrlRetorno) || Url.IsLocalUrl(viewmodel.UrlRetorno))
                 return Redirect(viewmodel.UrlRetorno);
             else
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Perfil", "Home");
         }
     }
 }

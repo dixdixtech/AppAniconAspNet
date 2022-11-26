@@ -120,14 +120,8 @@ namespace AniconAppAspNET.Models
                 tempCliente.Cli_Senha = lerCliente["Cli_Senha"].ToString();
                 tempCliente.Cli_DataNasc = DateTime.Parse(lerCliente["Cli_DataNasc"].ToString());
                 tempCliente.Cli_Sexo = lerCliente["Cli_Sexo"].ToString();
-                tempCliente.Tel_Num = lerCliente["Tel_Num"].ToString();
+                tempCliente.Tel_Num = lerCliente["Tel_Id"].ToString();
                 tempCliente.Cep = lerCliente["Cep"].ToString();
-                tempCliente.Estado_Nome = lerCliente["Estado_Nome"].ToString();
-                tempCliente.Cidade_Nome = lerCliente["Cidade_Nome"].ToString();
-                tempCliente.Bairro_Nome = lerCliente["Bairro_Nome"].ToString();
-                tempCliente.Logradouro = lerCliente["Logradouro"].ToString();
-                tempCliente.Num_Res = int.Parse(lerCliente["Num_Res"].ToString());
-                tempCliente.Complemento = lerCliente["Complemento"].ToString();
             };
             lerCliente.Close();
             conexao.Close();
