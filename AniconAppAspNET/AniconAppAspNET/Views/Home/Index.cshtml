@@ -1,7 +1,12 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-
+@if (TempData["MsgLogin"] != null)
+            {
+                <div class="alert alert-sucess">
+                    @TempData["MsgLogin"]
+                </div>
+            }
 <div class="jumbotron">
     <h1>ANICON</h1>
     <p class="lead">Sis.</p>

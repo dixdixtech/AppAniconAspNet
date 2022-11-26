@@ -5,6 +5,9 @@ using System.Web;
 using System.Web.Mvc;
 using AniconAppAspNET.ViewModels;
 using AniconAppAspNET.Models;
+using MySql.Data.MySqlClient;
+using System.Configuration;
+using System.Data;
 
 namespace AniconAppAspNET.Controllers
 {
@@ -13,6 +16,7 @@ namespace AniconAppAspNET.Controllers
         // GET: Produto
         public ActionResult IndexProd()
         {
+            
             var tempProdList = new Produto().ListAllProds();
             var tempProdViewList = new List<ListAllProdViewModel>();
 

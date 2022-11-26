@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
 using AniconAppAspNET.Models;
+using Compare = System.ComponentModel.DataAnnotations.CompareAttribute;
+using System.Web.Mvc;
 
 
 namespace AniconAppAspNET.ViewModels
@@ -27,7 +29,7 @@ namespace AniconAppAspNET.ViewModels
         [Display(Name = "Email")]
         [Required(ErrorMessage = "O email é obrigatório")]
         [MaxLength(100)]
-        [System.Web.Mvc.Remote("SelectEmail", "Autenticacao", ErrorMessage="O login já existe!")]
+        [Remote("SelectEmail", "Autenticacao", ErrorMessage= "O email já está cadastrado!")]
         public string Cli_Email { get; set; }
 
         [Display(Name = "Senha")]

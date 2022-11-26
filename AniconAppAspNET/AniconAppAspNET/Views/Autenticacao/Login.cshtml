@@ -4,13 +4,19 @@
     ViewBag.Title = "Login";
 }
 
+@if (TempData["MsgLogin"] != null)
+{
+    <div class="alert alert-sucess">
+        @TempData["MsgLogin"]
+    </div>
+}
 <h2>Login</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -42,7 +48,7 @@
 
 <div>
     @Html.ActionLink("Ainda não sou cadastrado", "Insert")
-    @Html.ActionLink("Cancelar", "Index")
+    @Html.ActionLink("Voltar", "Index", "Home")
 </div>
 
 @section Scripts {

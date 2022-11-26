@@ -3,18 +3,43 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Data;
 using System.Web.Mvc;
 using AniconAppAspNET.Models;
 using AniconAppAspNET.Utils;
 using System.Security.Claims;
+using MySql.Data.MySqlClient;
+using System.Configuration;
 
 namespace AniconAppAspNET.Controllers
 {
     public class AutenticacaoController : Controller
     {
+        public ActionResult Error(string mensagem)
+        {
+            ViewBag.error = "Entre em contato com o TI do site e passe a seguinte mensagem: {"+mensagem+"}";
+            return View();
+        }
+    
         [HttpGet]
         public ActionResult Insert()
         {
+            MySqlConnection conexao = new MySqlConnection(ConfigurationManager.ConnectionStrings["conexao"].ConnectionString);
+
+            try
+            {
+                conexao.Open();
+            }
+            catch (Exception e)
+            {
+                return RedirectToAction("Error", new { mensagem = e.Message });
+            }
+            finally
+            {
+                if (conexao.State == ConnectionState.Open)
+                    conexao.Close();
+
+            };
             return View();
         }
 
@@ -45,23 +70,27 @@ namespace AniconAppAspNET.Controllers
             
             var newcliente = new Cliente();
             newcliente.InsertCliente(novoCliente);
-            
 
-            
 
-            return RedirectToAction("Index", "Home");
+            TempData["MsgLogin"] = "Cadastro realizado com sucesso! Faça o Login.";
+
+            return RedirectToAction("Login", "Autenticacao");
         }
 
-        public ActionResult SelectEmail(string Email)
+        public ActionResult SelectEmail(string vCli_Email)
         {
             bool LoginExists;
  
-            string login = new Cliente().SelectEmail(Email);
+            string login = new Cliente().SelectCliEmail(vCli_Email);
 
             if (login.Length == 0)
+            {
                 LoginExists = false;
+            }
             else
+            {
                 LoginExists = true;
+            }
             return Json(!LoginExists, JsonRequestBehavior.AllowGet);
         }
 
@@ -81,6 +110,23 @@ namespace AniconAppAspNET.Controllers
             {
                 return View(viewmodel);
             }
+
+            MySqlConnection conexao = new MySqlConnection(ConfigurationManager.ConnectionStrings["conexao"].ConnectionString);
+
+            try
+            {
+                conexao.Open();
+            }
+            catch (Exception e)
+            {
+                return RedirectToAction("Error", new { mensagem = e.Message });
+            }
+            finally
+            {
+                if (conexao.State == ConnectionState.Open)
+                    conexao.Close();
+
+            };
 
             Cliente cliente = new Cliente();
             cliente = cliente.SelectCliente(viewmodel.Cli_Email);
@@ -104,7 +150,7 @@ namespace AniconAppAspNET.Controllers
 
             Request.GetOwinContext().Authentication.SignIn(identity);
 
-            if (!string.IsNullOrWhiteSpace(viewmodel.UrlRetorno) || Url.IsLocalUrl(viewmodel.UrlRetorno))
+            if (!String.IsNullOrWhiteSpace(viewmodel.UrlRetorno) || Url.IsLocalUrl(viewmodel.UrlRetorno))
                 return Redirect(viewmodel.UrlRetorno);
             else
                 return RedirectToAction("Perfil", "Home");
@@ -154,7 +200,11 @@ namespace AniconAppAspNET.Controllers
 
             cliente.UpdateSenha(cliente);
 
+            TempData["MsgLogin"] = "Senha alterada com sucesso!";
+
             return RedirectToAction("Index", "Home");
         }
+
+      
     }
 }

@@ -8,59 +8,61 @@ using System.Configuration;
 using MySql.Data.Types;
 using AniconAppAspNET.ViewModels;
 using System.Drawing;
+using System.Web.UI.WebControls;
 
 namespace AniconAppAspNET.Models
 {
     public class Cliente
     {
-       
+
         public string Cli_Cpf { get; set; }
 
-        
+
         public string Cli_Nome { get; set; }
 
-       
+
         public string Cli_NomeSoc { get; set; }
 
-        
+
         public string Cli_Email { get; set; }
 
-        
+
         public string Cli_Senha { get; set; }
 
-        
+
         public DateTime Cli_DataNasc { get; set; }
 
-        
+
         public string Cli_Sexo { get; set; }
 
-        
+
         public string Tel_Num { get; set; }
 
-       
+
         public string Cep { get; set; }
 
-        
+
         public string Estado_Nome { get; set; }
 
 
-        
+
         public string Cidade_Nome { get; set; }
 
-        
+
         public string Bairro_Nome { get; set; }
 
-        
+
         public string Logradouro { get; set; }
 
-        
+
         public int Num_Res { get; set; }
 
-        
+
         public string Complemento { get; set; }
 
         MySqlConnection conexao = new MySqlConnection(ConfigurationManager.ConnectionStrings["conexao"].ConnectionString);
         MySqlCommand command = new MySqlCommand();
+        
 
         public void InsertCliente(Cliente cliente)
         {
@@ -89,17 +91,20 @@ namespace AniconAppAspNET.Models
 
         }
 
-        public string SelectEmail(string vCli_Email)
+        public string SelectCliEmail(string vCli_Email)
         {
             conexao.Open();
             command.CommandText = "call spSelectEmail(@Cli_Email);";
             command.Parameters.Add("@Cli_Email", MySqlDbType.VarChar).Value = vCli_Email;
             command.Connection = conexao;
-            string Login = (string)command.ExecuteScalar();
+            string email = (string)command.ExecuteScalar();
             conexao.Close();
-            if (Login == null)
-                Login = "";
-            return Login;
+            if (email == null)
+            {
+                email = "";
+                
+            }
+            return email;
         }
 
         public Cliente SelectCliente(string vEmail)
