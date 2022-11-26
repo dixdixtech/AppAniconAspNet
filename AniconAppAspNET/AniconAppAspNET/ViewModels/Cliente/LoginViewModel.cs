@@ -13,7 +13,7 @@ namespace AniconAppAspNET.ViewModels
         [Display(Name = "Email")]
         [Required(ErrorMessage ="Informe o Email")]
         [MaxLength(200, ErrorMessage = "O email deve ter até 200 caracteres")]
-        [MinLength(20, ErrorMessage = "O email deve ter pelo menos 20 caracteres")]
+        [MinLength(10, ErrorMessage = "O email deve ter pelo menos 10 caracteres")]
         public string Cli_Email { get; set; }
 
         [Display(Name = "Senha")]

@@ -73,5 +73,10 @@ call spSelectEmail('kupyskii@gmail.com');
 call spSelectCliente('vegeta@gmail.com');
 call spUpdateSenha('kupyskii@gmail.com', 'kaio1234');
 select * from Cliente;
+select * from Produto;
+select * from Categoria;
 use dbdix;
 truncate Cliente;
+
+select Prod_Nome, Prod_Val, Prod_Descri, Prod_Img from Produto prod inner join Categoria categ on prod.Categ_Id = categ.Categ_Id;
+select * from Produto prod inner join Categoria categ on prod.Categ_Id = categ.Categ_Id;  

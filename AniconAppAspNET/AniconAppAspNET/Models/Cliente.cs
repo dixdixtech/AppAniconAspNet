@@ -129,6 +129,17 @@ namespace AniconAppAspNET.Models
     
         } 
 
+        public void UpdateSenha(Cliente cliente)
+        {
+            conexao.Open();
+            command.CommandText = "call spUpdateSenha(@Cli_Email, @Cli_Senha);";
+            command.Parameters.Add("@Cli_Email", MySqlDbType.VarChar).Value = cliente.Cli_Email;
+            command.Parameters.Add("@Cli_Senha", MySqlDbType.VarChar).Value = cliente.Cli_Senha;
+            command.Connection = conexao;
+            command.ExecuteNonQuery();
+            conexao.Close();
+        }
+
 
     }
 }

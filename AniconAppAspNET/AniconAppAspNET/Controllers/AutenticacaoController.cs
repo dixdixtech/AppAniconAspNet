@@ -115,5 +115,39 @@ namespace AniconAppAspNET.Controllers
             Request.GetOwinContext().Authentication.SignOut("AppAplicationCookie");
             return RedirectToAction("Index", "Home");
         }
+
+        [Authorize]
+        [HttpPost]
+        public ActionResult Alterarsenha(AlterarSenhaViewModel viewmodel)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+
+            var identity = User.Identity as ClaimsIdentity;
+            var login = identity.Claims.FirstOrDefault(c => c.Type == "Cli_Email").Value;
+
+            Cliente cliente = new Cliente();
+            cliente = cliente.SelectCliente(login);
+
+            if (Hash.GerarHash(viewmodel.SenhaAtual) != cliente.Cli_Senha)
+            {
+                ModelState.AddModelError("SenhaAtual", "Senha incorreta");
+                return View();
+            }
+
+            if (Hash.GerarHash(viewmodel.NovaSenha) == cliente.Cli_Senha)
+            {
+                ModelState.AddModelError("NovaSenha", "A nova senha é igual a antiga");
+                return View();
+            }
+
+            cliente.Cli_Senha = Hash.GerarHash(viewmodel.NovaSenha);
+
+            cliente.UpdateSenha(cliente);
+
+            return RedirectToAction("Index", "Home");
+        }
     }
 }

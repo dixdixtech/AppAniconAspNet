@@ -19,7 +19,7 @@ namespace AniconAppAspNET.App_Start
                 LoginPath = new PathString("/Autenticacao/Login")
             });
 
-            AntiForgeryConfig.UniqueClaimTypeIdentifier = "Login";
+            AntiForgeryConfig.UniqueClaimTypeIdentifier = "Cli_Email";
         }
     }
 }
