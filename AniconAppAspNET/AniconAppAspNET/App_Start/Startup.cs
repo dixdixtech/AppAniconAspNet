@@ -20,6 +20,8 @@ namespace AniconAppAspNET.App_Start
             });
 
             AntiForgeryConfig.UniqueClaimTypeIdentifier = "Cli_Email";
+ 
+
         }
     }
 }

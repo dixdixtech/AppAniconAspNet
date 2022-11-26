@@ -116,6 +116,13 @@ namespace AniconAppAspNET.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+
+        [Authorize]
+        public ActionResult Alterarsenha()
+        {
+            return View();
+        }
+
         [Authorize]
         [HttpPost]
         public ActionResult Alterarsenha(AlterarSenhaViewModel viewmodel)
