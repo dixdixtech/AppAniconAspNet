@@ -252,7 +252,7 @@ set vTelId     =  (select Tel_Id from Telefone where Tel_Num = vTel);
 select * from Endereco;
 select * from Funcionario;	
 select * from Telefone;
-
+select * from Estado;
 -- Cpf, Nome, nome social, email, senha, data nasc, sexo(F/M), tel, Cep, estado, cidade, bairro, logradouro, numero res, complemento
 Delimiter $$ 
 create procedure addCliente(vCliCpf varchar(14),vCliNome varchar(200),vCliNomeSoc varchar(200),vCliEmail varchar(200),vCliSenha varchar(100),vCliDataNasc DATETIME,vCliSexo varchar(1),
