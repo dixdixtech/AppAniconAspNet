@@ -42,7 +42,7 @@ namespace AniconAppAspNET.Controllers
         [HttpGet]
         public ActionResult CadProdAnicon()
         {
-            passDropDownListValues();
+
             return View();
         }
 
@@ -84,7 +84,7 @@ namespace AniconAppAspNET.Controllers
                        
                         Produto tempProd = new Produto();
                         tempProd.Prod_Nome = prod.Prod_Nome;
-                        tempProd.nome_Categ = new Categoria { Categ_Nome = prod.nome_categ.Categ_Nome };
+                        tempProd.Categ_Nome = prod.Categ_Nome;
                         tempProd.Prod_Garant = prod.Prod_Garant;
                         tempProd.Prod_Val = prod.Prod_Val;
                         tempProd.Prod_QuantEstoq = prod.Prod_QuantEstoq;
@@ -104,27 +104,27 @@ namespace AniconAppAspNET.Controllers
             {
                 prod.Prod_Img = "/Content/Images/proddefault.jpg";
             }
-            passDropDownListValues();
+            //passDropDownListValues();
             return View(prod);
         }
 
-        private void passDropDownListValues()
-        {
-            // DropDown das Categorias
-            var tempCategList = new Categoria().ListAllCateg();
-            var tempCategDropList = new List<DropViewCateg>();
+        //private void passDropDownListValues()
+        //{
+        //    // DropDown das Categorias
+        //    var tempCategList = new Categoria().ListAllCateg();
+        //    var tempCategDropList = new List<DropViewCateg>();
 
-            for (var i = 0; i < tempCategList.Count; i++)
-            {
-                var tempCategDrop = new DropViewCateg();
-                tempCategDrop.Categ_Id = tempCategList[i].Categ_Id;
-                tempCategDrop.Categ_Nome = tempCategList[i].Categ_Nome;
+        //    for (var i = 0; i < tempCategList.Count; i++)
+        //    {
+        //        var tempCategDrop = new DropViewCateg();
+        //        tempCategDrop.Categ_Id = tempCategList[i].Categ_Id;
+        //        tempCategDrop.Categ_Nome = tempCategList[i].Categ_Nome;
 
-                tempCategDropList.Add(tempCategDrop);
-            }
+        //        tempCategDropList.Add(tempCategDrop);
+        //    }
 
-            ViewBag.Categoria = tempCategDropList;
+        //    ViewBag.Categorias = tempCategDropList;
 
-        }
+        //}
     }
 }

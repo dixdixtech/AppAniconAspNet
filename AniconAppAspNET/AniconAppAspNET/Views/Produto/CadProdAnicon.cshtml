@@ -1,5 +1,5 @@
 ﻿@model AniconAppAspNET.ViewModels.Produto.CadProdViewModel
-@using AniconAppAspNET.ViewModels.Categoria
+
 @{
     ViewBag.Title = "CadProdAnicon";
 }
@@ -7,7 +7,7 @@
 <h2>CadProdAnicon</h2>
 
 
-@using (Html.BeginForm("CadProdAnicon", "Produto", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
@@ -15,7 +15,7 @@
         <h4>CadProdViewModel</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
+        
         <div class="form-group">
             @Html.LabelFor(model => model.Prod_Nome, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -25,17 +25,10 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.nome_categ, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Categ_Nome, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.DropDownListFor(model => model.nome_categ.Categ_Nome, ((IEnumerable<DropViewCateg>)ViewBag.Categoria).Select(option => new SelectListItem
-               {
-                   Text = option.Categ_Nome,
-                   Value = option.Categ_Nome.ToString(),
-                   Selected = (Model != null) && (option.Categ_Nome == Model.nome_categ.Categ_Nome)
-               }), "Selecione", new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.nome_categ, "", new { @class = "text-danger" })
-                </div>
+                @Html.EditorFor(model => model.Categ_Nome, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Categ_Nome, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -97,13 +90,13 @@
 
 
 <script>
-    $(function () {
-        $.validator.methods.date = function (value, element) {
-            return this.optional(element) || moment(value, "DD.MM.YYYY", true).isValid();
-        }
-    });
+        $(function () {
+            $.validator.methods.date = function (value, element) {
+                return this.optional(element) || moment(value, "DD.MM.YYYY", true).isValid();
+            }
+        });
 
-    $(document).ready(function () {
-        $("#Prod_Img").inputmask("mask", { "mask": "99/99/9999" })
-    })
+        $(document).ready(function () {
+            $("#Prod_Img").inputmask("mask", {"mask":"99/99/9999"})
+        })
 </script>

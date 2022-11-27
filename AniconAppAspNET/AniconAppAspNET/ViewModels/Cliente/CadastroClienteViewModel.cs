@@ -29,7 +29,7 @@ namespace AniconAppAspNET.ViewModels
         [Display(Name = "Email")]
         [Required(ErrorMessage = "O email é obrigatório")]
         [MaxLength(100)]
-        [Remote("SelectEmail", "Autenticacao", ErrorMessage = "O email já está cadastrado!")]
+        [Remote("SelectEmail", "Autenticacao", ErrorMessage= "O email já está cadastrado!")]
         public string Cli_Email { get; set; }
 
         [Display(Name = "Senha")]
@@ -61,7 +61,7 @@ namespace AniconAppAspNET.ViewModels
 
         [Display(Name = "CEP")]
         [Required(ErrorMessage = "O CEP é obrigatório")]
-        [RegularExpression(@"^\d{5}-\d{3}$", ErrorMessage = "Preencha um CEP válido, ex.: 12345-678")]
+        [RegularExpression(@"^\d{5}-\d{3}$", ErrorMessage ="Preencha um CEP válido, ex.: 12345-678")]
         public string Cep { get; set; }
 
         [Display(Name = "Estado")]
