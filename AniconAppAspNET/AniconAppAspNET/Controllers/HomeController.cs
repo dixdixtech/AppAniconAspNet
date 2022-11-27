@@ -1,8 +1,11 @@
-﻿using System;
+﻿using AniconAppAspNET.Models;
+using AniconAppAspNET.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+
 
 namespace AniconAppAspNET.Controllers
 {
@@ -10,26 +13,39 @@ namespace AniconAppAspNET.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            var tempProdList = new Produto().ListAllProds();//CHAMANDO O MÉTODO DE LISTAR TODOS OS PRODUTOS
+            var tempProdViewList = new List<ListAllProdViewModel>();
+
+            foreach (var tempProd in tempProdList)
+            {
+                //DEFININDO OS CAMPOS DA LISTA
+                var tempProdView = new ListAllProdViewModel();
+                tempProdView.Prod_Cod = tempProd.Prod_Cod;
+                tempProdView.Prod_Nome = tempProd.Prod_Nome;
+                tempProdView.Prod_Val = tempProd.Prod_Val;
+                tempProdView.Prod_Descri = tempProd.Prod_Descri;
+                tempProdView.Prod_Img = tempProd.Prod_Img;
+
+                tempProdViewList.Add(tempProdView);
+            }
+
+            return View(tempProdViewList);
         }
 
-        public ActionResult Teste()
+        [HttpGet]
+        public ActionResult DetalhesProduto(string Prod_Cod)//DETALHES DO PRODUTO
         {
-            return View();
+            if (Prod_Cod == null || Prod_Cod == "")
+            {
+                //SE O CÓDIGO DO PRODUTO FOR NULO, REDIRECIONA PARA A INDEX DOS PRODUTOS
+                return RedirectToAction("Index", "Home");
+            }
+
+            //LISTANDO O PRODUTO PELO CÓDIGO DELE
+            var tempProd = new Produto().ListProdByCod(Prod_Cod);
+
+            return View(tempProd);
         }
-
-        public ActionResult Produtos()
-        {
-            return View();
-        }
-
-        public ActionResult Perfil()
-        {
-            return View();
-        }
-
-
-
 
     }
 }

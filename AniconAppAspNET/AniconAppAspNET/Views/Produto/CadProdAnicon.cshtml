@@ -66,7 +66,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Prod_Descri, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Prod_Descri, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextAreaFor(model => model.Prod_Descri, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Prod_Descri, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -93,17 +93,20 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/inputmask")
+
+    <script>
+        $(function () {
+            $.validator.methods.date = function (value, element) {
+                return this.optional(element) || moment(value, "DD.MM.YYYY", true).isValid();
+            }
+        });
+
+        $(document).ready(function () {
+            $("#Prod_Garant").inputmask("mask", { "mask": "99/99/9999" })
+        })
+    </script>
 }
 
 
-<script>
-    $(function () {
-        $.validator.methods.date = function (value, element) {
-            return this.optional(element) || moment(value, "DD.MM.YYYY", true).isValid();
-        }
-    });
 
-    $(document).ready(function () {
-        $("#Prod_Img").inputmask("mask", { "mask": "99/99/9999" })
-    })
-</script>

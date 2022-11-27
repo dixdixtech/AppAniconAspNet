@@ -67,6 +67,36 @@ namespace AniconAppAspNET.Models
             return tempProdList;
         }
 
+        public List<Produto> SearchProd(string pesquisa) // MÉTODO DE BUSCA DE PRODUTOS
+        {
+            connection.Open();
+            command.CommandText = "call PesquisaProd (@Query);"; //CHAMANDO A STORE PROCEDURE
+            command.Parameters.Add("@Query", MySqlDbType.VarChar).Value = pesquisa;
+            command.Connection = connection;
+
+            var readSProd = command.ExecuteReader();
+            List<Produto> tempSProdList = new List<Produto>();
+
+            while (readSProd.Read()) //LENDO OS DADOS DO PRODUTO
+            {
+                var tempSProd = new Produto();
+                tempSProd.Prod_Cod = int.Parse(readSProd["Prod_Cod"].ToString());
+                tempSProd.Prod_Nome = readSProd["Prod_Nome"].ToString();
+                tempSProd.Prod_Garant = DateTime.Parse(readSProd["Prod_Garant"].ToString());
+                tempSProd.Prod_Val = double.Parse(readSProd["Prod_Val"].ToString());
+                tempSProd.Prod_QuantEstoq = int.Parse(readSProd["Prod_QuantEstoq"].ToString());
+                tempSProd.Prod_Descri = readSProd["Prod_Descri"].ToString();
+                tempSProd.Prod_Img = readSProd["Prod_Img"].ToString();
+                tempSProdList.Add(tempSProd);
+            }
+
+            //FECHANDO A CONEXÃO
+            readSProd.Close();
+            connection.Close();
+
+            return tempSProdList;
+        }
+
         public void InsertProduto(Produto prod)
         {
             connection.Open();
@@ -84,6 +114,8 @@ namespace AniconAppAspNET.Models
             connection.Close();
 
         }
+
+        
 
         public Produto ListProdByCod(string Prod_Cod)
         {

@@ -21,9 +21,8 @@ namespace AniconAppAspNET.Controllers
         // ACTION RESULT DOS PRODUTOS
         public ActionResult IndexProd()
         {
-
             var tempProdList = new Produto().ListAllProds();//CHAMANDO O MÉTODO DE LISTAR TODOS OS PRODUTOS
-            var tempProdViewList = new List<ListAllProdViewModel>(); 
+            var tempProdViewList = new List<ListAllProdViewModel>();
 
             foreach (var tempProd in tempProdList)
             {
@@ -41,6 +40,35 @@ namespace AniconAppAspNET.Controllers
             return View(tempProdViewList);
         }
 
+        //public ActionResult Pesquisa()
+        //{
+        //    return View();
+        //}
+
+        //[HttpPost]
+        //public ActionResult Pesquisa(string pesquisa)
+        //{
+        //    var tempSProdList = new Produto().SearchProd(pesquisa);
+
+        //    return View(tempSProdList);
+        //}
+
+        [HttpGet]
+        public ActionResult DetalhesProduto(string Prod_Cod)//DETALHES DO PRODUTO
+        {
+            if (Prod_Cod == null || Prod_Cod == "")
+            {
+                //SE O CÓDIGO DO PRODUTO FOR NULO, REDIRECIONA PARA A INDEX DOS PRODUTOS
+                return RedirectToAction("IndexProd", "Produto");
+            }
+
+            //LISTANDO O PRODUTO PELO CÓDIGO DELE
+            var tempProd = new Produto().ListProdByCod(Prod_Cod);
+
+            return View(tempProd);
+        }
+
+
         [HttpGet]
         public ActionResult CadProdAnicon() //CADASTRO DE PRODUTOS
         {
@@ -52,6 +80,10 @@ namespace AniconAppAspNET.Controllers
         //CADASTRO DE PRODUTOS [POST]
         public ActionResult CadProdAnicon(CadProdViewModel prod, HttpPostedFileBase Prod_Img)
         {
+            if (prod.nome_categ.Categ_Nome == null)
+            {
+                ModelState.AddModelError("nome_categ", "Selecione uma categoria.");
+            }
 
             if (Prod_Img != null && Prod_Img.ContentLength > 0)//VERIFICANDO SE A IMAGEM NÃO É NULA
             {
@@ -141,19 +173,6 @@ namespace AniconAppAspNET.Controllers
 
         }
 
-        [HttpGet]
-        public ActionResult DetalhesProduto(string Prod_Cod)//DETALHES DO PRODUTO
-        {   
-            if (Prod_Cod == null || Prod_Cod == "")
-            {
-                //SE O CÓDIGO DO PRODUTO FOR NULO, REDIRECIONA PARA A INDEX DOS PRODUTOS
-                return RedirectToAction("IndexProd", "Produto");
-            }
-
-            //LISTANDO O PRODUTO PELO CÓDIGO DELE
-            var tempProd = new Produto().ListProdByCod(Prod_Cod);
-
-            return View(tempProd);
-        }
+        
     }
 }
