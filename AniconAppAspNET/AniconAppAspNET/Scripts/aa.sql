@@ -2,16 +2,23 @@ drop database if exists dbdix;
 create database dbdix;
 use dbdix;
 
+-- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- -------------------------------------------------------------------------------------| TABELAS |-------------------------------------------------------------------------------------------------
+-- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+drop database if exists dbdix;
+create database dbdix;
+use dbdix;
+
 create table Estado(
   Estado_Id int primary key auto_increment,
-  Estado_Nome varchar(50) not null
+  Estado_Nome varchar(2) not null
 );
 create table Cidade(
-	Cidade_Id int primary key auto_increment,
+  Cidade_Id int primary key auto_increment,
   Cidade_Nome varchar(50) not null
 );
 create table Bairro(
-	Bairro_Id int primary key auto_increment,
+  Bairro_Id int primary key auto_increment,
   Bairro_Nome varchar(100) not null
 );
 create table Endereco(
@@ -22,15 +29,13 @@ create table Endereco(
   Logradouro varchar(50) not null,
   Num_Res int,
   Complemento varchar (255),
-
-    constraint Endereco_c_Bairro
-    foreign key (Bairro_Id) references Bairro (Bairro_Id),
-    
-    constraint Cidade_c_Estado
-    foreign key (Estado_Id) references Estado (Estado_Id),
-    
-    constraint Bairro_c_Cidade
-    foreign key (Cidade_Id) references Cidade (Cidade_Id)
+  -- FK
+  constraint Endereco_c_Bairro
+  foreign key (Bairro_Id) references Bairro (Bairro_Id),
+  constraint Cidade_c_Estado
+  foreign key (Estado_Id) references Estado (Estado_Id),
+  constraint Bairro_c_Cidade
+  foreign key (Cidade_Id) references Cidade (Cidade_Id)
 );
 
 create table Telefone(
@@ -45,11 +50,10 @@ create table Funcionario(
     Func_Cargo varchar(50) not null,
     Func_DataNasc DATETIME not null,
     Tel_Id int not null,
-    Cep varchar(8) not null,
+    Cep varchar(9) not null,
     Func_Email varchar(200) not null,
 	Func_Senha varchar(100) not null,
     Func_Sexo varchar(1) not null,
-    
     -- FK
     constraint Func_c_Tel
     foreign key (Tel_Id) references Telefone (Tel_Id),
@@ -106,7 +110,7 @@ create table Pedido(
 create table Delivery(
 	Deliv_Cod int primary key not null auto_increment,
     Ped_Cod int not null,
-	Cep varchar(8) not null,
+	Cep varchar(9) not null,
     Deliv_Data DATETIME not null, 
     -- FK
     constraint Deliv_c_Ped
@@ -126,7 +130,6 @@ create table Devolucao(
     constraint Devol_c_Deliv
     foreign key (Deliv_Cod) references Delivery (Deliv_Cod)
 );
-
 create table Pagamento(
 	Pagto_Cod int primary key not null auto_increment,
     Cli_Cpf varchar(14) not null,
@@ -142,25 +145,44 @@ create table Pagamento(
 create table Venda(
 	Nota_Fiscal int primary key auto_increment,
     Ped_Cod int not null,
-    Func_Cpf varchar(20) not null,
     Pagto_Cod int not null,
     Venda_Val double not null,
     -- FK
     constraint Vend_c_Ped
     foreign key (Ped_Cod) references Pedido (Ped_Cod),
     constraint Vend_c_Pagto
-    foreign key (Pagto_Cod) references Pagamento (Pagto_Cod),
-    constraint Vend_c_Func
-    foreign key (Func_Cpf) references Funcionario (Func_Cpf)
+    foreign key (Pagto_Cod) references Pagamento (Pagto_Cod)
 );
 
+-- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- ------------------------------------------------------------------------------| PROCEDURE LISTAR (LIST) |---------------------------------------------------------------------------------------
+-- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Delimiter $$
+create procedure addTelefone (pTelNum varchar(20))
+begin
+	insert into Telefone (Tel_Num)
+			      values (pTelNum);
+end;
+$$
+insert into Estado (Estado_Id, Estado_Nome)
+			values (default,'AC'), (default,'AL'), (default,'AP'), (default,'AM'), (default,'BA'), (default,'CE'),
+                   (default,'DF'), (default,'ES'), (default,'GO'), (default,'MA'), (default,'MT'),
+				   (default,'MG'), (default,'PA'), (default,'PB'), (default,'PR'), (default,'PE'),
+				   (default,'PI'), (default,'RJ'), (default,'RN'), (default,'RS'), (default,'RO'),
+				   (default,'RR'), (default,'SC'), (default,'SP'), (default,'SE'), (default,'TO');                  
 
-
-
-
-
-
-
+Delimiter $$
+create procedure addCidade (vCidadeNome varchar(50)) -- Nome da cidade e o id do estado
+begin insert into Cidade (Cidade_Nome)
+				  values (vCidadeNome);
+end;
+$$
+Delimiter $$
+create procedure addBairro (vBaiNome varchar(100)) -- Nome da bairro e o id da cidade
+begin insert into Bairro (Bairro_Nome)
+				  values (vBaiNome);
+end;
+$$
 Delimiter $$ 
 create procedure addEndereco(vCEP varchar(9),vEstado char(2),vCidade varchar(200),vBairro varchar(200),vLogradouro varchar(200),vNumRes int,vComplemento varchar(255))
 Begin
@@ -191,8 +213,6 @@ if not exists (select CEP From Endereco where CEP = vCEP) then
   SELECT 'Já existe';
  End If;  
 End $$         
-
-
 -- Cpf, Nome, nome social, cargo, data nasc, tel, email, senha, sexo(F/M), Cep, estado, cidade, bairro, logradouro, numero res, complemento
 Delimiter $$ 
 create procedure addFuncionario(vFuncCpf varchar(14),vFuncNome varchar(200),vFuncNomeSoc varchar(200),vFuncCargo varchar(50),vFuncDataNasc DATETIME,vTel varchar(20),vFuncEmail varchar(200),vFuncSenha varchar(100),vFuncSexo varchar(1),vCEP varchar(9),vEstado char(2),vCidade varchar(200),vBairro varchar(200),vLogradouro varchar(200),vNumRes int,vComplemento varchar(255))
@@ -252,7 +272,7 @@ set vTelId     =  (select Tel_Id from Telefone where Tel_Num = vTel);
 select * from Endereco;
 select * from Funcionario;	
 select * from Telefone;
-select * from Estado;
+
 -- Cpf, Nome, nome social, email, senha, data nasc, sexo(F/M), tel, Cep, estado, cidade, bairro, logradouro, numero res, complemento
 Delimiter $$ 
 create procedure addCliente(vCliCpf varchar(14),vCliNome varchar(200),vCliNomeSoc varchar(200),vCliEmail varchar(200),vCliSenha varchar(100),vCliDataNasc DATETIME,vCliSexo varchar(1),
@@ -310,13 +330,20 @@ set vTelId     =  (select Tel_Id from Telefone where Tel_Num = vTel);
  End If;
  end $$
 
- 
+delimiter $$
+create procedure addCategoria (pCategNome varchar(50))
+begin insert into Categoria(Categ_Nome)
+				values(pCategNome);
+end;
+$$
  
  Delimiter $$
-create procedure addProduto(vProd varchar(100),vCateg varchar(50),vProdGarant datetime, vProdVal double,vProdQuantEstoq int(10),vProdDescri varchar(10000),vProdImg varchar(500))
+create procedure addProduto(vProd varchar(100),vCateg varchar(50),vProdGarant varchar(10), vProdVal double,vProdQuantEstoq int(10),vProdDescri varchar(10000),vProdImg varchar(500))
 begin
 	declare vCategId int;
+    declare vProdGarantConvert date;
     set vCategId = (select Categ_Id from Categoria where Categ_Nome = vCateg);
+    set vProdGarantConvert = STR_TO_DATE(vProdGarant,'%d/%m/%Y');
 
 	if not exists(select Prod_Cod from Produto where Prod_Nome = vProd) then
 		if(vCategId is null) then
@@ -325,7 +352,7 @@ begin
             select 'Categoria Cadastrada';
 		end if;
      insert into Produto(Prod_Nome,Categ_Id,Prod_Garant,Prod_Val,Prod_QuantEstoq,Prod_Img,Prod_Descri)
-				 values (vProd,vCategId,vProdGarant,vProdVal,vProdQuantEstoq,vProdImg,vProdDescri);   
+				 values (vProd,vCategId,vProdGarantConvert,vProdVal,vProdQuantEstoq,vProdImg,vProdDescri);   
         select 'Produto foi cadastrado com sucesso';
     else
 		select 'Produto ja cadastrado';
@@ -400,14 +427,8 @@ end if;
                   
                   
 end $$
- call addDevolucao('4','1');    
- 
- select * from Endereco;
- select * from Pedido;
- select * from Delivery;
  
  Delimiter $$
- 
  create procedure addPagamento(vCli varchar(11),vPed int,vPagtoTipo varchar(50))
  Begin
 	
@@ -428,50 +449,245 @@ end if;
 
  end $$
 
-
 Delimiter $$
-create procedure addVenda (vPed int,vFunc varchar(20),vPagto int)
+create procedure addVenda (vPed int,vPagto int)
 Begin
 
 declare vPedCod int;
-declare vFuncCpf varchar(20);
 declare vPagtoCod int;
 set vPedCod   = (select Ped_Cod from Pedido where Ped_Cod = vPed);
-set vFuncCpf  = (select Func_Cpf from Funcionario where Func_Cpf = vFunc);
 set vPagtoCod = (select Pagto_Cod from Pagamento where Pagto_Cod = vPagto);
 
 if (vPedCod is null) then
 	select 'Pedido não registrado';
 end if;
-if (vFuncCpf is null) then
-	select 'Funcionário não cadastrado';
-end if;
 if (vPagtoCod is null) then
 	select 'Pagamento não realizado';
 end if;
-	insert into Venda (Ped_Cod,Func_Cpf,Pagto_Cod,Venda_Val)
-			   values (vPedCod,vFuncCpf,vPagtoCod,(select Pagto_Total from Pagamento where Pagto_Cod = vPagto));
+	insert into Venda (Ped_Cod,Pagto_Cod,Venda_Val)
+			   values (vPedCod,vPagtoCod,(select Pagto_Total from Pagamento where Pagto_Cod = vPagto));
 End $$
+
+-- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- -------------------------------------------------------------------------------| PROCEDURE ATUALIZAR (UP) |--------------------------------------------------------------------------------------
+-- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Delimiter $$
+create procedure spUpdateSenha(vEmail varchar(200), vSenha varchar(100))
+begin
+update Cliente set Cli_Senha = vSenha where Cli_Email = vEmail;
+end $$
+-- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- ------------------------------------------------------------------------------| PROCEDURE LISTAR (LIST) |----------------------------------------------------------------------------------------
+-- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Delimiter $$
 create procedure spSelectEmail(vEmail varchar(200))
 begin
 select Cli_Email from Cliente where Cli_Email = vEmail;
-end$$
+end $$
 
 Delimiter $$
 create procedure spSelectCliente(vEmail varchar(200))
 begin
 select * from Cliente where Cli_Email = vEmail;
-end$$
+end $$
+
+-- Cidade
+delimiter $$
+create procedure listCidade()
+begin 
+	select * from Cidade;
+end;
+$$
+-- Bairro 
+delimiter $$
+create procedure listBairro()
+begin                   
+	select * from Bairro;
+end;
+$$
+-- Endereco
+delimiter $$ 
+create procedure listEndereco()
+begin 
+	select * from Endereco;
+end;
+$$
+-- Categoria
+delimiter $$
+create procedure listCategoria ()
+begin 
+	select * from Categoria;
+end;
+$$
+delimiter $$
+create procedure listProduto ()
+begin
+	select * from Produto;
+end;
+$$
+
+-- Cliente
+delimiter $$
+create procedure listCliente ()
+begin
+	select * from Cliente;
+end;	
+$$
+-- Pedido
+delimiter $$
+create procedure listPedido ()
+begin
+	select * from Pedido;
+end;
+$$ 
+-- Delivery
+delimiter $$
+create procedure listDelivery ()
+begin
+	select * from Delivery;
+end;
+$$
+-- Devolucao
+delimiter $$
+create procedure listDevolucao ()
+begin 
+		select * from Devolucao;
+end;
+$$
+-- Pagamento
+delimiter $$
+create procedure listPagamento ()
+begin
+		select * from Pagamento;
+end;
+$$
+-- Funcionário
+delimiter $$
+create procedure listFuncionario ()
+begin
+	select * from Funcionario;
+end;
+$$
+-- ID do Pedido, ID do Funcionário, ID do Pagamento;
+delimiter $$
+create procedure listVenda ()
+begin
+	select * from Venda;
+end;
+$$
+-- Número do Telefone, Tipo de Telefone;
+delimiter $$
+create procedure listTelefone ()
+begin
+	select * from Telefone;
+end; $$
 
 Delimiter $$
-create procedure spUpdateSenha(vEmail varchar(200), vSenha varchar(100))
+create procedure listEstado()
 begin
-update Cliente set Cli_Senha = vSenha where Cli_Email = vEmail;
-end$$
+	select * from Estado;
+end; $$
 
+-- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- ------------------------------------------------------------------------------| PROCEDURE EXCLUIR (DEL) |--------------------------------------------------------------------------------------
+-- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- Cidade
+delimiter $$
+create procedure delCidade (vCidadeId int)
+begin 
+	delete from Cidade where Cidade_Id = vCidadeId;
+end;
+$$
+-- Bairro 
+delimiter $$
+create procedure delBairro (vBaiId int)
+begin                   
+	delete from Bairro where Bairro_Id = vBaiId;
+end;
+$$
+-- Endereco
+delimiter $$ 
+create procedure delEndereco(pCep varchar(8))
+begin 
+	delete from Endereco where Cep = pCep;
+end;
+$$
+-- Categoria
+delimiter $$
+create procedure delCategoria (pCategoriaId int)
+begin 
+		delete from Categoria where Categ_Id = pCategoriaId;
+end;
+$$
+-- Produto
+delimiter $$
+create procedure delProduto (pProdCod int)
+begin
+		delete from Produto where Prod_Cod = pProdCod;
+end;
+$$
+-- Cliente
+delimiter $$
+create procedure delCliente (pCliId int)
+begin
+	delete from Cliente where Cli_Id = pCliId;
+end;	
+$$
+call upCliente
+-- Pedido
+delimiter $$
+create procedure delPedido (pPedCod int)
+begin
+	delete from Pedido where Ped_Cod = pPedCod;   
+end;
+$$ 
+-- Delivery
+delimiter $$
+create procedure delDelivery (pDelivCod int)
+begin
+	delete from Delivery where Deliv_Cod = pDelivCod;
+end;
+$$
+-- Devolucao
+delimiter $$
+create procedure delDevolucao (pDevolCod int)
+begin 
+	delete from Devolucao where Devol_Cod = pDevolCod;
+end;
+$$
+-- Pagamento
+delimiter $$
+create procedure delPagamento (pPagtoCod int)
+begin
+	delete from Pagamento where Pagto_Cod = pPagtoCod;
+end;
+$$
+-- Funcionario
+delimiter $$
+create procedure delFuncionario (pFuncId int)
+begin
+	delete from Funcionario where Func_Id = pFuncId;
+end;
+$$
+-- Venda
+delimiter $$
+create procedure delVenda (pVendaCod int)
+begin
+	delete from Venda where Venda_Cod = pVendaCod;
+end;
+$$
+-- Telefone
+delimiter $$
+create procedure delTelefone (pTelId int)
+begin
+	delete from Telefone where Tel_Id = pTelId;
+end;
+$$
 
-
-
-
+delimiter $$
+create procedure PesquisaProd (Pesquisa varchar(150))
+begin
+	select Prod_Cod, Prod_Nome, Prod_Garant, Prod_Val, Prod_QuantEstoq, Prod_Descri, Prod_Img from Produto where Prod_Nome
+    like CONCAT('%',Pesquisa,'%') or Prod_Descri like CONCAT('%',Pesquisa,'%');
+end $$
