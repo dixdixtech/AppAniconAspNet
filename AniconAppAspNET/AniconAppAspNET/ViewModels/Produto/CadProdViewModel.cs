@@ -17,9 +17,13 @@ namespace AniconAppAspNET.ViewModels.Produto
         [MaxLength(100, ErrorMessage = "O nome deve ter no máximo 100 caracteres")]
         public string Prod_Nome { get; set; }
 
-        [Display(Name = "Categoria")]
-        [Required(ErrorMessage = "A categoria é obrigatória")]
-        public string Categ_Nome { get; set; }
+        //[Display(Name = "Categoria")]
+        //[Required(ErrorMessage = "A categoria é obrigatória")]
+        //public string Categ_Nome { get; set; }
+
+        [Display(Name ="Categoria")]
+        [Required(ErrorMessage="A categoria é obrigatória")]
+        public DropViewCateg nome_categ { get; set; }
 
         [Display(Name = "Garantia")]
         [Required(ErrorMessage = "A garantia é obrigatória")]

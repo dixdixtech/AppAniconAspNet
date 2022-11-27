@@ -14,7 +14,9 @@ namespace AniconAppAspNET.Models
     {
         //public int Prod_Cod { get; set; }
 
-        public string Categ_Nome { get; set; }
+        //public string Categ_Nome { get; set; }
+
+        public Categoria nome_Categ { get; set;}
 
         public string Prod_Nome { get; set; }
 
@@ -62,10 +64,10 @@ namespace AniconAppAspNET.Models
         public void InsertProduto(Produto prod)
         {
             connection.Open();
-            command.CommandText = "call addProduto(@Prod_Nome, @Categ_Nome, @Prod_Garant, @Prod_Val, @Prod_QuantEstoq" +
-                "@Prod_Descri, @Prod_Img);";
+            command.CommandText = "call addProduto(@Prod_Nome, @Categ_Nome, @Prod_Garant, @Prod_Val, @Prod_QuantEstoq," +
+                " @Prod_Descri, @Prod_Img);";
             command.Parameters.Add("@Prod_Nome", MySqlDbType.VarChar).Value = prod.Prod_Nome;
-            command.Parameters.Add("@Categ_Nome", MySqlDbType.VarChar).Value = prod.Categ_Nome;
+            command.Parameters.Add("@Categ_Nome", MySqlDbType.VarChar).Value = prod.nome_Categ.Categ_Nome;
             command.Parameters.Add("@Prod_Garant", MySqlDbType.DateTime).Value = prod.Prod_Garant;
             command.Parameters.Add("@Prod_Val", MySqlDbType.Double).Value = prod.Prod_Val;
             command.Parameters.Add("@Prod_QuantEstoq", MySqlDbType.Int64).Value = prod.Prod_QuantEstoq;

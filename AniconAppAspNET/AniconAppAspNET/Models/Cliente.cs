@@ -62,7 +62,7 @@ namespace AniconAppAspNET.Models
 
         MySqlConnection conexao = new MySqlConnection(ConfigurationManager.ConnectionStrings["conexao"].ConnectionString);
         MySqlCommand command = new MySqlCommand();
-        
+
 
         public void InsertCliente(Cliente cliente)
         {

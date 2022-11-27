@@ -16,8 +16,6 @@ namespace AniconAppAspNET.Models
 
         [Display(Name= "Categoria")]
         [Required(ErrorMessage = "A Categoria é obrigatória")]
-        [MinLength(4, ErrorMessage = "A categoria deve ter no mínimo 4 caracteres")]
-        [MaxLength(50, ErrorMessage = "A categoria deve ter no máximo 50 caracteres")]
         public string Categ_Nome { get; set; }
 
 

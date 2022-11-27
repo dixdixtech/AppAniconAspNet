@@ -206,14 +206,15 @@
     <Content Include="Views\Home\Teste.cshtml" />
     <Content Include="Views\Shared\_LayoutTeste.cshtml" />
     <Content Include="Views\Home\Perfil.cshtml" />
-    <Content Include="Views\Autenticacao\Insert.cshtml" />
     <Content Include="Views\Autenticacao\Login.cshtml" />
     <Content Include="Views\Produto\IndexProd.cshtml" />
     <Content Include="Views\Autenticacao\Alterarsenha.cshtml" />
     <Content Include="Views\Produto\CadProdAnicon.cshtml" />
+    <Content Include="Views\Autenticacao\Insert.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="ViewModels\Estado\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
