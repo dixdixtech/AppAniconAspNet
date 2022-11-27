@@ -28,6 +28,7 @@ namespace AniconAppAspNET.Controllers
             foreach (var tempProd in tempProdList)
             {
                 var tempProdView = new ListAllProdViewModel();
+                tempProdView.Prod_Cod = tempProd.Prod_Cod;
                 tempProdView.Prod_Nome = tempProd.Prod_Nome;
                 tempProdView.Prod_Val = tempProd.Prod_Val;
                 tempProdView.Prod_Descri = tempProd.Prod_Descri;
@@ -125,6 +126,19 @@ namespace AniconAppAspNET.Controllers
 
             ViewBag.Categoria = tempCategDropList;
 
+        }
+
+        [HttpGet]
+        public ActionResult DetalhesProduto(string Prod_Cod)
+        {
+            if (Prod_Cod == null || Prod_Cod == "")
+            {
+                return RedirectToAction("Index");
+            }
+
+            var tempProd = new Produto().ListProdByCod(Prod_Cod);
+
+            return View(tempProd);
         }
     }
 }

@@ -211,6 +211,7 @@
     <Content Include="Views\Produto\IndexProd.cshtml" />
     <Content Include="Views\Autenticacao\Alterarsenha.cshtml" />
     <Content Include="Views\Produto\CadProdAnicon.cshtml" />
+    <Content Include="Views\Produto\DetalhesProduto.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

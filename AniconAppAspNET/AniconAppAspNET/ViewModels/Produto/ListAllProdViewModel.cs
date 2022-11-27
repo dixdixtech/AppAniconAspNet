@@ -8,6 +8,8 @@ namespace AniconAppAspNET.ViewModels
 {
     public class ListAllProdViewModel
     {
+        public int Prod_Cod { get; set; }
+
         [Display(Name = "Nome")]
         public string Prod_Nome { get; set; }
 
