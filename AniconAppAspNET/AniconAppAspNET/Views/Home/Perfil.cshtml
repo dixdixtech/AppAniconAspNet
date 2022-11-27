@@ -3,122 +3,124 @@
 @{
     ViewBag.Title = "Perfil";
 }
+<div class="jumbotron">
 
-<h2>Perfil</h2>
+    <h2>Perfil</h2>
 
 
-<div class="modal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p>Modal body text goes here.</p>
-            </div>
-            <div class="modal-footer">
+    <div class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Modal body text goes here.</p>
+                </div>
+                <div class="modal-footer">
+                </div>
             </div>
         </div>
     </div>
+    <div>
+        <h4>Funcionario</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Func_Id)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Func_Id)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Func_Nome)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Func_Nome)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Func_NomeSoc)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Func_NomeSoc)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Func_Cargo)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Func_Cargo)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Func_DataNasc)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Func_DataNasc)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.fkTel_Id)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.fkTel_Id)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.fkCep)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.fkCep)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Func_Cpf)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Func_Cpf)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Func_Email)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Func_Email)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Func_Senha)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Func_Senha)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Func_Sexo)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Func_Sexo)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Editar", "Edit", new { /* id = Model.PrimaryKey */ }) |
+        @Html.ActionLink("Voltar", "Index")
+    </p>
 </div>
-<div>
-    <h4>Funcionario</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Func_Id)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Func_Id)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Func_Nome)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Func_Nome)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Func_NomeSoc)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Func_NomeSoc)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Func_Cargo)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Func_Cargo)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Func_DataNasc)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Func_DataNasc)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.fkTel_Id)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.fkTel_Id)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.fkCep)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.fkCep)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Func_Cpf)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Func_Cpf)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Func_Email)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Func_Email)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Func_Senha)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Func_Senha)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Func_Sexo)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Func_Sexo)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Editar", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    @Html.ActionLink("Voltar", "Index")
-</p>

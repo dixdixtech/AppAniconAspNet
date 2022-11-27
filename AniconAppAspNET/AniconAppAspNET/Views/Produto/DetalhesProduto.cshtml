@@ -3,65 +3,67 @@
 @{
     ViewBag.Title = "Detalhes do Produto";
 }
+<div class="jumbotron">
 
-<h2>Detalhes do Produto</h2>
+    <h2>Detalhes do Produto</h2>
 
-<div>
-    <h4>Produto</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        
-        <dt>
-            @Html.DisplayNameFor(model => model.Prod_Nome)
-        </dt>
+    <div>
+        <h4>Produto</h4>
+        <hr />
+        <dl class="dl-horizontal">
 
-        <dd>
-            @Html.DisplayFor(model => model.Prod_Nome)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Prod_Nome)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Prod_Garant)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Prod_Nome)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Prod_Garant)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Prod_Garant)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Prod_Val)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Prod_Garant)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Prod_Val)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Prod_Val)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Prod_QuantEstoq)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Prod_Val)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Prod_QuantEstoq)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Prod_QuantEstoq)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Prod_Descri)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Prod_QuantEstoq)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Prod_Descri)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Prod_Descri)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Prod_Img)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Prod_Descri)
+            </dd>
 
-        <dd>
-            <img src="@Html.DisplayFor(model => model.Prod_Img)" />
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Prod_Img)
+            </dt>
 
-    </dl>
+            <dd>
+                <img src="@Html.DisplayFor(model => model.Prod_Img)" />
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+
+        @Html.ActionLink("Voltar", "IndexProd", "Produto")
+    </p>
 </div>
-<p>
-    
-    @Html.ActionLink("Voltar", "IndexProd", "Produto")
-</p>

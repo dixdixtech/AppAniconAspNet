@@ -9,7 +9,7 @@
     padding-right: 15px;
 }
 
- Override the default bootstrap behavior where horizontal description lists 
+/* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 
 .dl-horizontal dt {
@@ -27,7 +27,7 @@ textarea {
 .navbar-inverse .navbar-toggle:focus {
     background-color: #777;
     border-color: #fff
-}
+}*/
 
 nav {
     background: #171c24;
