@@ -170,6 +170,9 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\ceessiessi\Estilo.css" />
     <Content Include="Content\ceessiessi\EstiloTeste.css" />
+    <Content Include="Content\Images\031dac405d586ea22e7cb15b8b7b8c13.jpg" />
+    <Content Include="Content\Images\facebook.png" />
+    <Content Include="Content\Images\Logo.svg" />
     <Content Include="Content\Images\proddefault.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
