@@ -24,22 +24,28 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Prod_Nome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Prod_Val)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Prod_Descri)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Prod_Img)
-        </td>
-        
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prod_Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prod_Val)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prod_Descri)
+            </td>
+            <td>
+                <img src="@Url.Content(item.Prod_Img)" style="width: 100px; height: 200px; object-fit: cover;" />
+            </td>
+
+            <td>
+                <button class="botao">
+                    <a href="">Detalhes</a>
+                </button>
+            </td>
+        </tr>
+    }
 
 </table>

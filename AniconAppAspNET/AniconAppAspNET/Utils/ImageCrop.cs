@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Web;
 
-namespace ASP_SpringLibrary.Utils
+namespace AniconAppAspNET.Utils
 {
     public class ImageCrop
     {
