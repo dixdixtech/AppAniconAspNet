@@ -13,12 +13,14 @@ namespace AniconAppAspNET.App_Start
     {
         public void Configuration(IAppBuilder app)
         {
+            //INICIALIZANDO O COOKIE
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
                 AuthenticationType = "AppAplicationCookie",
                 LoginPath = new PathString("/Autenticacao/Login")
             });
 
+            //IDENTIFICANDO O CAMPO DO LOGIN
             AntiForgeryConfig.UniqueClaimTypeIdentifier = "Cli_Email";
  
 

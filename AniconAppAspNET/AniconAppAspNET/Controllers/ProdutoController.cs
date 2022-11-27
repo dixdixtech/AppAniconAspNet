@@ -18,15 +18,16 @@ namespace AniconAppAspNET.Controllers
 {
     public class ProdutoController : Controller
     {
-        // GET: Produto
+        // ACTION RESULT DOS PRODUTOS
         public ActionResult IndexProd()
         {
 
-            var tempProdList = new Produto().ListAllProds();
-            var tempProdViewList = new List<ListAllProdViewModel>();
+            var tempProdList = new Produto().ListAllProds();//CHAMANDO O MÉTODO DE LISTAR TODOS OS PRODUTOS
+            var tempProdViewList = new List<ListAllProdViewModel>(); 
 
             foreach (var tempProd in tempProdList)
             {
+                //DEFININDO OS CAMPOS DA LISTA
                 var tempProdView = new ListAllProdViewModel();
                 tempProdView.Prod_Cod = tempProd.Prod_Cod;
                 tempProdView.Prod_Nome = tempProd.Prod_Nome;
@@ -41,48 +42,56 @@ namespace AniconAppAspNET.Controllers
         }
 
         [HttpGet]
-        public ActionResult CadProdAnicon()
+        public ActionResult CadProdAnicon() //CADASTRO DE PRODUTOS
         {
-            passDropDownListValues();
+            passDropDownListValues();//CHAMANDO O DROPDOWN DA CATEGORIA
             return View();
         }
 
         [HttpPost]
+        //CADASTRO DE PRODUTOS [POST]
         public ActionResult CadProdAnicon(CadProdViewModel prod, HttpPostedFileBase Prod_Img)
         {
 
-            if (Prod_Img != null && Prod_Img.ContentLength > 0)
+            if (Prod_Img != null && Prod_Img.ContentLength > 0)//VERIFICANDO SE A IMAGEM NÃO É NULA
             {
-                if (ModelState.IsValid)
+                if (ModelState.IsValid) //VERIFICANDO O MODEL STATE
                 {
-                    if (Prod_Img != null && Prod_Img.ContentLength > 0)
+                    if (Prod_Img != null && Prod_Img.ContentLength > 0)//VERIFICANDO SE A IMAGEM NÃO É NULA
                     {
-                        string extension = Path.GetExtension(Prod_Img.FileName).ToLower();
+                        string extension = Path.GetExtension(Prod_Img.FileName).ToLower(); //COMEÇANDO O CAMINHO
 
+                        //VERIFICANDO SE A EXTENSÃO É VÁLIDA
                         if (extension.Equals(".jpg") || extension.Equals(".png") || extension.Equals(".jpeg"))
                         {
+
                             string fileName = Hash.GenerateMD5(
                                     string.Format("{0:HH:mm:ss tt}", DateTime.Now) + Prod_Img.FileName
                                 ) + extension;
 
+                            //DEFININDO O CAMINHO DA IMAGEM
                             string imgPath = Path.Combine(Server.MapPath("/Content/Images/"), fileName);
 
+                            //MUDANDO A ALTURA E LARGURA
                             var width = Image.FromStream(Prod_Img.InputStream).Width;
                             var height = Image.FromStream(Prod_Img.InputStream).Height;
                             bool imgSaved = new ImageCrop().SaveCroppedImage(Image.FromStream(Prod_Img.InputStream), width, height, imgPath);
 
+                            //VERIFICANDO SE SALVOU A IMAGEM
                             if (imgSaved)
                             {
+                                //SE SALVOU, DEFINE O CAMINHO INTEIRO DA IMAGEM, JUNTO COM O SEU NOME E EXTENSÃO
                                 prod.Prod_Img = "/Content/Images/" + fileName;
                             }
                         }
                         else
                         {
+                            // SE A EXTENSÃO DA IMAGEM FOR INVÁLIDA, DA ERRO
                             ModelState.AddModelError("Prod_Img", "A imagem deve ser do tipo .jpg/.png/.jpeg");
                             return View(prod);
                         }
 
-
+                        //COLOCANDO OS CAMPOS
                         Produto tempProd = new Produto();
                         tempProd.Prod_Nome = prod.Prod_Nome;
                         tempProd.nome_Categ = new Categoria { Categ_Nome = prod.nome_categ.Categ_Nome };
@@ -92,31 +101,34 @@ namespace AniconAppAspNET.Controllers
                         tempProd.Prod_Descri = prod.Prod_Descri;
                         tempProd.Prod_Img = prod.Prod_Img;
 
-
+                        //INSERINDO O PRODUTO NO MÉTODO
                         new Produto().InsertProduto(tempProd);
 
-                        return RedirectToAction("Index", "Home");
+                        return RedirectToAction("Index", "Home");// REDIRECIONANDO PARA A INDEX DA HOME
                     }
                 }
 
+                //SE ACONTECER ALGUM ERRO, IRÁ SER COBRADO A SELEÇÃO DA IMAGEM NOVAMENTE
                 ModelState.AddModelError("Prod_Img", "Selecione a imagem novamente");
             }
             else
             {
+                //SE A IMAGEM NÃO FOR LIDA, SERÁ DEFINIDA UMA IMAGEM DEFAULT
                 prod.Prod_Img = "/Content/Images/proddefault.jpg";
             }
-            passDropDownListValues();
+            passDropDownListValues();// CHAMANDO O DROPDOWN DA CATEGORIA
             return View(prod);
         }
 
-        private void passDropDownListValues()
+        private void passDropDownListValues() //MÉTODO DE DROPDOWN DA CATEGORIA
         {
-            // DropDown das Categorias
+            // CHAMANDO O MÉTODO DE LISTAR TODAS AS CATEGORIAS
             var tempCategList = new Categoria().ListAllCateg();
             var tempCategDropList = new List<DropViewCateg>();
 
             for (var i = 0; i < tempCategList.Count; i++)
             {
+                //DEFININDO OS CAMPOS A SEREM DROPADOS
                 var tempCategDrop = new DropViewCateg();
                 tempCategDrop.Categ_Id = tempCategList[i].Categ_Id;
                 tempCategDrop.Categ_Nome = tempCategList[i].Categ_Nome;
@@ -124,18 +136,21 @@ namespace AniconAppAspNET.Controllers
                 tempCategDropList.Add(tempCategDrop);
             }
 
+            //DEFININDO UMA VIEWBAG
             ViewBag.Categoria = tempCategDropList;
 
         }
 
         [HttpGet]
-        public ActionResult DetalhesProduto(string Prod_Cod)
-        {
+        public ActionResult DetalhesProduto(string Prod_Cod)//DETALHES DO PRODUTO
+        {   
             if (Prod_Cod == null || Prod_Cod == "")
             {
-                return RedirectToAction("Index");
+                //SE O CÓDIGO DO PRODUTO FOR NULO, REDIRECIONA PARA A INDEX DOS PRODUTOS
+                return RedirectToAction("IndexProd", "Produto");
             }
 
+            //LISTANDO O PRODUTO PELO CÓDIGO DELE
             var tempProd = new Produto().ListProdByCod(Prod_Cod);
 
             return View(tempProd);
