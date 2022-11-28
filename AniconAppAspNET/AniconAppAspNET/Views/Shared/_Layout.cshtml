@@ -14,22 +14,22 @@
 
 </head>
 <body>
-    <nav class="nav">
+    <nav class="nav"  style="padding-right:20px">
         <div class="menu-icon">
             <span class="fas fa-bars"></span>
         </div>
         <div class="logo" style="font-family: Limelig">
             ANICON
         </div>
-        <div class="nav-items">
+        <div class="nav-items" >
             <li><a href='@Url.Action("Index", "Home")'>Página Inicial</a></li>
             @*<li><a href='@Url.Action("Perfil", "Home")'>Perfil</a></li>*@
             @if (User.Identity.IsAuthenticated)
             {
                 @*<li><a href='@Url.Action("DetalhesProduto", "Produto")'>Detalhes Produto</a></li>*@
                 <li><a href='@Url.Action("CadProdAnicon", "Produto")'>Cadastrar Produto</a></li>
-                <li>@Html.ActionLink(@User.Identity.Name, "", "")</li>
                 <li>@Html.ActionLink("Alterar Senha", "Alterarsenha", "Autenticacao")</li>
+                <li>@Html.ActionLink(@User.Identity.Name, "", "")</li>
                 <li>@Html.ActionLink("Sair", "Logout", "Autenticacao")</li>
             }
             else
