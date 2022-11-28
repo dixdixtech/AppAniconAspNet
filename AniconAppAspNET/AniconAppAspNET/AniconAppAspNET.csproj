@@ -209,6 +209,7 @@
     <Content Include="Content\Images\king.jpg" />
     <Content Include="Content\Images\kocho.jpg" />
     <Content Include="Content\Images\levi.jpg" />
+    <Content Include="Content\Images\Logo.ico" />
     <Content Include="Content\Images\Logo.svg" />
     <Content Include="Content\Images\mamaco.jpg" />
     <Content Include="Content\Images\mochilakakashi.png" />
