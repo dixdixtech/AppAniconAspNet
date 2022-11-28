@@ -11,10 +11,18 @@ namespace AniconAppAspNET.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public ActionResult Index(string search)
         {
-            var tempProdList = new Produto().ListAllProds();//CHAMANDO O MÉTODO DE LISTAR TODOS OS PRODUTOS
             var tempProdViewList = new List<ListAllProdViewModel>();
+            var tempProdList = new List<Produto>();
+            if (search == null)
+            {
+                tempProdList = new Produto().ListAllProds();//CHAMANDO O MÉTODO DE LISTAR TODOS OS PRODUTOS
+            }
+            else
+            {
+                tempProdList = new Produto().SearchProd(search);//CHAMANDO O MÉTODO DE LISTAR TODOS OS PRODUTOS
+            }
 
             foreach (var tempProd in tempProdList)
             {

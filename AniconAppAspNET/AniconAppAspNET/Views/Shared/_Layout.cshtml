@@ -1,54 +1,106 @@
 ﻿<!DOCTYPE html>
+@*CERTO CERTO CERTO CERTO CERTO CERTO CERTO CERTO CERTO CERTO CERTO CERTO*@
+
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - ANICON 2022</title>
+    @Styles.Render("~/Content/Site.css")
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <nav class="nav">
+        <div class="menu-icon">
+            <span class="fas fa-bars"></span>
+        </div>
+        <div class="logo" style="font-family: Limelig">
+            ANICON
+        </div>
+        <div class="nav-items">
+            <li><a href='@Url.Action("Index", "Home")'>Página Inicial</a></li>
+            @*<li><a href='@Url.Action("Perfil", "Home")'>Perfil</a></li>*@
+            @if (User.Identity.IsAuthenticated)
+            {
+                @*<li><a href='@Url.Action("DetalhesProduto", "Produto")'>Detalhes Produto</a></li>*@
+                <li><a href='@Url.Action("CadProdAnicon", "Produto")'>Cadastrar Produto</a></li>
+                <li>@Html.ActionLink(@User.Identity.Name, "", "")</li>
+                <li>@Html.ActionLink("Alterar Senha", "Alterarsenha", "Autenticacao")</li>
+                <li>@Html.ActionLink("Sair", "Logout", "Autenticacao")</li>
+            }
+            else
+            {
+                <li><a href='@Url.Action("Insert", "Autenticacao")'>Cadastrar</a></li>
+                <li><a href='@Url.Action("Login", "Autenticacao")'>Login</a></li>
+            }
+        </div>
+        <div class="search-icon">
+            <span class="fas fa-search"></span>
+        </div>
+        <div class="cancel-icon">
+            <span class="fas fa-times"></span>
+        </div>
+        @using (Html.BeginForm("Index", "Home", FormMethod.Get))
+        {
+                <input name="search" id="search" type="search" class="search-data" placeholder="Buscar produtos" required=required />
+                <button type="submit" class="fas fa-search"></button>
+        }
+    </nav>
+    @*ATUALIZADO*@
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+    <br />    <br />
+    <br />
+    <br />
+    <footer class="footer">
         <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" title="more options">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("ANICON", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    @*<li>@Html.ActionLink("Produtos", "IndexProd", "Produto")</li>*@
-                    <li>@Html.ActionLink("Gerenciar conta", "Perfil", "Home")</li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    @if (User.Identity.IsAuthenticated)
-                     {
-                        <li>@Html.ActionLink(@User.Identity.Name, "", "")</li>
-                        <li>@Html.ActionLink("Alterar Senha", "Alterarsenha", "Autenticacao")</li>
-                        <li>@Html.ActionLink("Sair", "Logout", "Autenticacao")</li>
-                     }
-                     else
-                     {
-                        <li>@Html.ActionLink("Cadastro", "Insert", "Autenticacao")</li>
-                        <li>@Html.ActionLink("Login", "Login", "Autenticacao")</li>
-                     }
-                </ul>
+            <div class="row">
+                <div class="footer-col centrooo">
+                    <h4>Empresa</h4>
+                    <ul>
+                        <li><a href='@Url.Action("Index", "Home")'>Página Inicial</a></li>
+                        <li><a href='@Url.Action("Index", "Home")'>Página Inicial</a></li>
+                        <li><a href='@Url.Action("Index", "Home")'>Página Inicial</a></li>
+                        <li><a href='@Url.Action("Index", "Home")'>Página Inicial</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col centrooo">
+                    <h4>Fale conosco</h4>
+                    <ul>
+                        <li><a href="mailto:dix.dixtech@gmail.com" style=" text-transform: lowercase; text-decoration:underline">dix.dixtech@gmail.com</a></li>
+                        <li><a href='@Url.Action("Index", "Home")'>Página Inicial</a></li>
+                        <li><a href='@Url.Action("Index", "Home")'>Página Inicial</a></li>
+                        <li><a href='@Url.Action("Index", "Home")'>Página Inicial</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col centrooo">
+                    <h4>Categorias</h4>
+                    <ul>
+                        <li><a href='@Url.Action("Index", "Home")'>Página Inicial</a></li>
+                        <li><a href='@Url.Action("Index", "Home")'>Página Inicial</a></li>
+                        <li><a href='@Url.Action("Index", "Home")'>Página Inicial</a></li>
+                        <li><a href='@Url.Action("Index", "Home")'>Página Inicial</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col centrooo">
+                    <h4>Redes sociais</h4>
+                    <div class="social-links">
+                        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>ANICON&copy; - @DateTime.Now.Year  </p>
-        </footer>
-    </div>
-
+    </footer>
+    @Scripts.Render("~/Scripts/script.js")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
