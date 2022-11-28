@@ -24,7 +24,7 @@ Siga o caminho de pastas a seguir:
 
 AppAniconAspNet -> AniconAppAspNET -> AniconAppAspNET -> Scripts -> Banco de Dados
 
-Irá aparecer dois scripts, abra o "Banco", depois abra o "Comandos".
+Irá aparecer dois scripts, abra o "Banco.sql", depois abra o "Comandos.sql".
 
 Rode o script "Banco.sql".
 
