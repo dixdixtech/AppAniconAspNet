@@ -165,7 +165,7 @@ begin
 			      values (pTelNum);
 end;
 $$
-      
+              
 
 Delimiter $$
 create procedure addCidade (vCidadeNome varchar(50)) -- Nome da cidade e o id do estado
@@ -334,10 +334,9 @@ end;
 $$
  
  Delimiter $$
-create procedure addProduto(vProd varchar(100),vCateg varchar(50),vProdGarant varchar(10), vProdVal double,vProdQuantEstoq int(10),vProdDescri varchar(10000),vProdImg varchar(500))
+create procedure addProduto(vProd varchar(100),vCateg varchar(50),vProdGarant datetime, vProdVal double,vProdQuantEstoq int(10),vProdDescri varchar(10000),vProdImg varchar(500))
 begin
 	declare vCategId int;
-    declare vProdGarantConvert date;
     set vCategId = (select Categ_Id from Categoria where Categ_Nome = vCateg);
 
 	if not exists(select Prod_Cod from Produto where Prod_Nome = vProd) then
