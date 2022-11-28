@@ -11,18 +11,18 @@
 }
 <div class="jumbotron">
     <h1>BEM-VINDO À ANICON - A SUA LOJA GEEK</h1>
-    <table class="table">
-        <tr>
-            <th>
+    <table class="table" style="border:solid; border-block-color:black; border-width:1px ">
+        <tr style="background-color:black; color:white">
+            <th style="border: solid; border-block-color: white; border-width: 1px ">
                 @Html.DisplayNameFor(model => model.Prod_Nome)
             </th>
-            <th>
+            <th style="border: solid; border-block-color: white; border-width: 1px ">
                 @Html.DisplayNameFor(model => model.Prod_Val)
             </th>
-            <th>
+            @*<th style="border: solid; border-block-color: white; border-width: 1px ">
                 @Html.DisplayNameFor(model => model.Prod_Descri)
-            </th>
-            <th>
+            </th>*@
+            <th style="border: solid; border-block-color: white; border-width: 1px ">
                 @Html.DisplayNameFor(model => model.Prod_Img)
             </th>
             <th></th>
@@ -30,17 +30,17 @@
 
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
+            <tr style="background-color:#808080">
+                <td style="border: solid; border-block-color: white; border-width: 1px ">
                     @Html.DisplayFor(modelItem => item.Prod_Nome)
                 </td>
-                <td>
+                <td style="border: solid; border-block-color: white; border-width: 1px ">
                     @Html.DisplayFor(modelItem => item.Prod_Val)
                 </td>
-                <td>
+                @*<td>
                     @Html.DisplayFor(modelItem => item.Prod_Descri)
-                </td>
-                <td>
+                </td>*@
+                <td style="border: solid; border-block-color: white; border-width: 1px "> 
                     <img src="@Url.Content(item.Prod_Img)" style="width: 100px; height: 200px; object-fit: cover;" />
                 </td>
 
