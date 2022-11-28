@@ -35,7 +35,7 @@ namespace AniconAppAspNET.Controllers
         [HttpGet]
         public ActionResult DetalhesProduto(string Prod_Cod)//DETALHES DO PRODUTO
         {
-            if (Prod_Cod == null || Prod_Cod == "")
+            if (Prod_Cod == null)
             {
                 //SE O CÓDIGO DO PRODUTO FOR NULO, REDIRECIONA PARA A INDEX DOS PRODUTOS
                 return RedirectToAction("Index", "Home");
