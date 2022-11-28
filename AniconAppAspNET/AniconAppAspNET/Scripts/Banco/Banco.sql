@@ -165,12 +165,7 @@ begin
 			      values (pTelNum);
 end;
 $$
-insert into Estado (Estado_Id, Estado_Nome)
-			values (default,'AC'), (default,'AL'), (default,'AP'), (default,'AM'), (default,'BA'), (default,'CE'),
-                   (default,'DF'), (default,'ES'), (default,'GO'), (default,'MA'), (default,'MT'),
-				   (default,'MG'), (default,'PA'), (default,'PB'), (default,'PR'), (default,'PE'),
-				   (default,'PI'), (default,'RJ'), (default,'RN'), (default,'RS'), (default,'RO'),
-				   (default,'RR'), (default,'SC'), (default,'SP'), (default,'SE'), (default,'TO');                  
+      
 
 Delimiter $$
 create procedure addCidade (vCidadeNome varchar(50)) -- Nome da cidade e o id do estado
