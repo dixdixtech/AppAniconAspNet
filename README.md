@@ -1,10 +1,10 @@
 # AppAniconAspNet
 
 ## Descrição do Projeto
-<p align="center">Este é um projeto de TCC, realizado por alunos do curso de Desenvolvimento de Sistemas Integrado ao Médio da escola ETEC Professor Basilides de Godoy.</p>
-<p align="center">Este TCC reune conhecimentos desde o primeiro ano de curso.</p>
-<p align="center">O sistema em questão é feito por uma empresa fictícia chamada DixTech. O cliente que pediu o sistema é uma loja de produtos da cultura pop japonesa, chamada Anicon.</p>
-<p align="center">A aplicação consiste em um e-commerce que conecta com o banco de dados MySql para fazer as operações necessárias.</p>
+<p>Este é um projeto de TCC, realizado por alunos do curso de Desenvolvimento de Sistemas Integrado ao Médio da escola ETEC Professor Basilides de Godoy.</p>
+<p>Este TCC reune conhecimentos desde o primeiro ano de curso.</p>
+<p >O sistema em questão é feito por uma empresa fictícia chamada DixTech. O cliente que pediu o sistema é uma loja de produtos da cultura pop japonesa, chamada Anicon.</p>
+<p>A aplicação consiste em um e-commerce que conecta com o banco de dados MySql para fazer as operações necessárias.</p>
 
 ## Desenvolvedores do projeto
 
