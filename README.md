@@ -3,13 +3,13 @@
 ## Descrição do Projeto
 <p>Este é um projeto de TCC, realizado por alunos do curso de Desenvolvimento de Sistemas Integrado ao Médio da escola ETEC Professor Basilides de Godoy.</p>
 <p>Este TCC reune conhecimentos desde o primeiro ano de curso.</p>
-<p >O sistema em questão é feito por uma empresa fictícia chamada DixTech. O cliente que pediu o sistema é uma loja de produtos da cultura pop japonesa, chamada Anicon.</p>
+<p >O sistema em questão é feito por uma empresa fictícia chamada DixTech. O cliente que pediu o sistema é uma empresa que tem uma loja de produtos da cultura pop japonesa, chamada Anicon e precisa de um sistema.</p>
 <p>A aplicação consiste em um e-commerce que conecta com o banco de dados MySql para fazer as operações necessárias.</p>
 
 ## Desenvolvedores da aplicação
 
-Arthur Renan Gutierrez Dias Pereira - Desenvolvedor Back-End <br>
-Rodrigo Barreto Moraes Costa - Desenvolvedor Front-End
+<a href="https://github.com/arthurrenan00">Arthur Renan Gutierrez Dias Pereira</a> - Desenvolvedor Back-End <br>
+<a href="https://github.com/rodrigobmc">Rodrigo Barreto Moraes Costa</a> - Desenvolvedor Front-End
 
 ## Linguagens de programação utilizadas
 
@@ -61,11 +61,11 @@ Novamente, vá aonde você extraiu o zip do projeto ou aonde você clonou o proj
 
 Abra o arquivo <b>AniconAppAspNET.sln</b>
 
-Você será redirecionado para o Visual Studio.
+Você será redirecionado para o <b>Visual Studio</b>.
 
 Se a sua senha do MySql do usuário root <b>NÃO for "12345678"</b>, siga as seguintes instruções:
 
-Pela <b>Solution Explorer</b>, localizada à direita do seu Visual Studio, procure a pasta <i>Web.Config</i>.
+Pela <b>Solution Explorer</b>, localizada à direita do seu <b>Visual Studio</b>, procure a pasta <i>Web.Config</i>.
 <B>CUIDADO:</b> o arquivo <i>Web.Config</i> também está presente dentro da pasta View, <b>MAS ESSE NÃO SERA USADO</b>.
 O Web.Config que <b>SERÁ USADO</b> é o que está lá embaixo, sendo o último arquivo do PROJETO EM SI.
 
@@ -82,7 +82,7 @@ Clique nesta opção e rode o Sistema da Anicon :)
 
 
 <h4 align="center"> 
-	🚧  Anicon 🚀 Em construção...  🚧
+	🚧  :star: Anicon :star: Em construção...  🚧
 </h4>
 
 
