@@ -8,7 +8,7 @@
 
 ## Desenvolvedores do projeto
 
-Arthur Renan Gutierrez Dias Pereira - Desenvolvedor Back-End
+Arthur Renan Gutierrez Dias Pereira - Desenvolvedor Back-End <br>
 Rodrigo Barreto Moraes Costa - Desenvolvedor Front-End
 
 ## Linguagens de programação utilizada
