@@ -11,6 +11,16 @@
 Arthur Renan Gutierrez Dias Pereira - Desenvolvedor Back-End
 Rodrigo Barreto Moraes Costa - Desenvolvedor Front-End
 
+## Linguagens de programação utilizada
+
+<center>
+C# com ASP.NET Framework
+SQL
+Java Script
+Html
+Css
+</center>
+
 # Como usar o Sistema ASP.NET da Anicon:
 
 ## 1° Passo - instalação:
@@ -71,16 +81,8 @@ Na parte superior do Visual Studio tem uma seta verde e que do lado está escrit
 Clique nesta opção e rode o Sistema da Anicon :)
 
 
-OPCIONAL:
-
-Se você quiser cadastrar algum produto, vá na url do site, e digite "/Produto/CadProdAnicon" 
-depois do localhost. EXEMPLO: https://localhost:12345/Produto/CadProdAnicon
-
-OU
-
-Termine a execução do sistema e na Solution Explorer vá na pasta Views -> Produto -> 
-CadProdAnicon.cshtml
-
-E inicie o sistema a partir desse arquivo.
+<h4 align="center"> 
+	🚧  Anicon 🚀 Em construção...  🚧
+</h4>
 
 
