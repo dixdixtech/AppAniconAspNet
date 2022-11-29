@@ -1,4 +1,4 @@
-# AppAniconAspNet
+# TCC - ANICON
 
 ## Descrição do Projeto
 <p>Este é um projeto de TCC, realizado por alunos do curso de Desenvolvimento de Sistemas Integrado ao Médio da escola ETEC Professor Basilides de Godoy.</p>
