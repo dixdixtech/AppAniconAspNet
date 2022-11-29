@@ -6,12 +6,12 @@
 <p >O sistema em questão é feito por uma empresa fictícia chamada DixTech. O cliente que pediu o sistema é uma loja de produtos da cultura pop japonesa, chamada Anicon.</p>
 <p>A aplicação consiste em um e-commerce que conecta com o banco de dados MySql para fazer as operações necessárias.</p>
 
-## Desenvolvedores do projeto
+## Desenvolvedores da aplicação
 
 Arthur Renan Gutierrez Dias Pereira - Desenvolvedor Back-End <br>
 Rodrigo Barreto Moraes Costa - Desenvolvedor Front-End
 
-## Linguagens de programação utilizada
+## Linguagens de programação utilizadas
 
 <center>
 C# com ASP.NET Framework <br>
