@@ -65,7 +65,7 @@ Você será redirecionado para o Visual Studio.
 
 Se a sua senha do MySql do usuário root <b>NÃO for "12345678"</b>, siga as seguintes instruções:
 
-Pela Solution Explorer, localizada à direita do seu Visual Studio, procure a pasta Web.Config.
+Pela <b>Solution Explorer</b>, localizada à direita do seu Visual Studio, procure a pasta <i>Web.Config</i>.
 <B>CUIDADO:</b> o arquivo <i>Web.Config</i> também está presente dentro da pasta View, <b>MAS ESSE NÃO SERA USADO</b>.
 O Web.Config que <b>SERÁ USADO</b> é o que está lá embaixo, sendo o último arquivo do PROJETO EM SI.
 
@@ -76,7 +76,7 @@ seu MySQL.
 
 ## INICIAÇÃO:
 
-Na parte superior do Visual Studio tem uma seta verde e que do lado está escrito <i>ISS EXPRESS</i>.
+Na parte superior do <b>Visual Studio</b> tem uma seta verde e que do lado está escrito <i>ISS EXPRESS</i>.
 
 Clique nesta opção e rode o Sistema da Anicon :)
 
