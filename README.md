@@ -1,7 +1,19 @@
 # AppAniconAspNet
-Como usar o Sistema ASP.NET da Anicon:
 
-1° Passo - instalação:
+## Descrição do Projeto
+<p align="center">Este é um projeto de TCC, realizado por alunos do curso de Desenvolvimento de Sistemas Integrado ao Médio da escola ETEC Professor Basilides de Godoy.</p>
+<p align="center">Este TCC reune conhecimentos desde o primeiro ano de curso.</p>
+<p align="center">O sistema em questão é feito por uma empresa fictícia chamada DixTech. O cliente que pediu o sistema é uma loja de produtos da cultura pop japonesa, chamada Anicon.</p>
+<p align="center">A aplicação consiste em um e-commerce que conecta com o banco de dados MySql para fazer as operações necessárias.</p>
+
+## Desenvolvedores do projeto
+
+Arthur Renan Gutierrez Dias Pereira - Desenvolvedor Back-End
+Rodrigo Barreto Moraes Costa - Desenvolvedor Front-End
+
+# Como usar o Sistema ASP.NET da Anicon:
+
+## 1° Passo - instalação:
 
 Baixe o projeto zipado e extraia tudo.
 
@@ -10,7 +22,7 @@ Ou
 Copie o código do projeto e clone ele no Git Bash/Git Hub Desktop
 
 
-2° Passo - Banco de dados:
+## 2° Passo - Banco de dados:
 
 Antes de tudo, se a sua senha do MySql for "12345678", tudo será mais fácil.
 Se a sua senha for outra, mais para frente irá ser explicado o que fazer.
@@ -31,7 +43,7 @@ Rode o script "Banco.sql".
 Rode o script "Comandos.sql".
 
 
-3° Passo - Visual Studio:
+## 3° Passo - Visual Studio:
 
 Novamente, vá aonde você extraiu o zip do projeto ou aonde você clonou o projeto.
 
@@ -52,7 +64,7 @@ instruída aonde você irá SUBSTITUIR a senha que está lá pela sua senha ATUA
 seu MySQL.
 
 
-INICIAÇÃO:
+## INICIAÇÃO:
 
 Na parte superior do Visual Studio tem uma seta verde e que do lado está escrito ISS EXPRESS.
 
