@@ -14,11 +14,11 @@ Rodrigo Barreto Moraes Costa - Desenvolvedor Front-End
 ## Linguagens de programação utilizada
 
 <center>
-C# com ASP.NET Framework
-SQL
-Java Script
-Html
-Css
+C# com ASP.NET Framework <br>
+SQL <br>
+Java Script <br>
+Html <br>
+Css <br>
 </center>
 
 # Como usar o Sistema ASP.NET da Anicon:
