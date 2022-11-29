@@ -37,46 +37,46 @@ Copie o código do projeto e clone ele no Git Bash/Git Hub Desktop
 Antes de tudo, se a sua senha do MySql for "12345678", tudo será mais fácil.
 Se a sua senha for outra, mais para frente irá ser explicado o que fazer.
 
-Abra o seu MySql e aperte CTRL+SHIFT+O, ou Vá em File -> Open SQL Script nas opções de menu.
+Abra o seu MySql e aperte CTRL+SHIFT+O, ou Vá em <b>File -> Open SQL Script</b> nas opções de menu.
 
 Vá aonde você extraiu o zip do projeto ou aonde você clonou o projeto.
 
 Siga o caminho de pastas a seguir:
 
 
-AppAniconAspNet -> AniconAppAspNET -> AniconAppAspNET -> Scripts -> Banco de Dados
+<b>AppAniconAspNet -> AniconAppAspNET -> AniconAppAspNET -> Scripts -> Banco de Dados </b>
 
-Irá aparecer dois scripts, abra o "Banco.sql", depois abra o "Comandos.sql".
+Irá aparecer dois scripts, abra o <b>"Banco.sql"</b>, depois abra o <b>"Comandos.sql"</b>.
 
-Rode o script "Banco.sql".
+Rode o script <b>"Banco.sql"</b>.
 
-Rode o script "Comandos.sql".
+Rode o script <b>"Comandos.sql"</b>.
 
 
 ## 3° Passo - Visual Studio:
 
 Novamente, vá aonde você extraiu o zip do projeto ou aonde você clonou o projeto.
 
-AppAniconAspNet -> AniconAppAspNET
+<b>AppAniconAspNet -> AniconAppAspNET</b>
 
-Abra o arquivo AniconAppAspNET.sln
+Abra o arquivo <b>AniconAppAspNET.sln</b>
 
 Você será redirecionado para o Visual Studio.
 
-Se a sua senha do MySql do usuário root NÃO for "12345678", siga as seguintes instruções:
+Se a sua senha do MySql do usuário root <b>NÃO for "12345678"</b>, siga as seguintes instruções:
 
 Pela Solution Explorer, localizada à direita do seu Visual Studio, procure a pasta Web.Config.
-CUIDADO: o arquivo Web.Config também está presente dentro da pasta View, MAS ESSE NÃO SERA USADO.
-O Web.Config que SERÁ USADO é o que está lá embaixo, sendo o último arquivo do PROJETO EM SI.
+<B>CUIDADO:</b> o arquivo <i>Web.Config</i> também está presente dentro da pasta View, <b>MAS ESSE NÃO SERA USADO</b>.
+O Web.Config que <b>SERÁ USADO</b> é o que está lá embaixo, sendo o último arquivo do PROJETO EM SI.
 
 Após abrir ele, procure a parte que está comentada (caracterizada pela cor verde), nela será
-instruída aonde você irá SUBSTITUIR a senha que está lá pela sua senha ATUAL do usuário ROOT do 
+instruída aonde você irá <b>SUBSTITUIR</b> a senha que está lá pela sua senha <b>ATUAL</b> do usuário ROOT do 
 seu MySQL.
 
 
 ## INICIAÇÃO:
 
-Na parte superior do Visual Studio tem uma seta verde e que do lado está escrito ISS EXPRESS.
+Na parte superior do Visual Studio tem uma seta verde e que do lado está escrito <i>ISS EXPRESS</i>.
 
 Clique nesta opção e rode o Sistema da Anicon :)
 
