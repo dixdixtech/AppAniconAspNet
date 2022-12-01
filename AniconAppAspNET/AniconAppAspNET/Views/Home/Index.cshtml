@@ -9,51 +9,40 @@
         @TempData["MsgLogin"]
     </div>
 }
-<div class="jumbotron">
-    <h1>BEM-VINDO À ANICON - A SUA LOJA GEEK</h1>
-    <table class="table" style="border:solid; border-block-color:black; border-width:1px ">
-        <tr style="background-color:black; color:white">
-            <th style="border: solid; border-block-color: white; border-width: 1px ">
-                @Html.DisplayNameFor(model => model.Prod_Nome)
-            </th>
-            <th style="border: solid; border-block-color: white; border-width: 1px ">
-                @Html.DisplayNameFor(model => model.Prod_Val)
-            </th>
-            @*<th style="border: solid; border-block-color: white; border-width: 1px ">
-                @Html.DisplayNameFor(model => model.Prod_Descri)
-            </th>*@
-            <th style="border: solid; border-block-color: white; border-width: 1px ">
-                @Html.DisplayNameFor(model => model.Prod_Img)
-            </th>
-            <th></th>
-        </tr>
+<section class="slider-banner">
+    <div class="container-banner">
+        <img src="~/Content/Images/banner.png" alt="banner da página inicial">
+        <img src="~/Content/Images/banner.png" alt="banner da página inicial">
+        <img src="~/Content/Images/banner.png" alt="banner da página inicial">
+    </div><!--container-bannner-->
+</section><!--slider-banner-->
+<div class="container">
+    <div class="inicio jumbotron">
+        <h1>BEM-VINDO À ANICON - A SUA LOJA GEEK</h1>
+        <h2>Esses são nossos principais produtos:</h2>
+        <div class="container-prod">
+            @foreach (var item in Model)
+            {
+                <div class="prod-single">
+                    <div class="prod-single-img">
+                        <img src="@Url.Content(item.Prod_Img)" />
+                    </div><!--prod-single-img-->
+                    <div class="prod-single-info">
+                        <p class="prod-nome">
+                            @for (var i = 0; i < 1; i++)
+                            {
+                                var descTrimmed = item.Prod_Nome.Substring(0, 19);
 
-        @foreach (var item in Model)
-        {
-            <tr style="background-color:#808080">
-                <td style="border: solid; border-block-color: white; border-width: 1px ">
-                    @Html.DisplayFor(modelItem => item.Prod_Nome)
-                </td>
-                <td style="border: solid; border-block-color: white; border-width: 1px ">
-                    @Html.DisplayFor(modelItem => item.Prod_Val)
-                </td>
-                @*<td>
-                    @Html.DisplayFor(modelItem => item.Prod_Descri)
-                </td>*@
-                <td style="border: solid; border-block-color: white; border-width: 1px "> 
-                    <img src="@Url.Content(item.Prod_Img)" style="width: 200px; height: 300px; object-fit: cover;" />
-                </td>
-
-                <td>
-                    <button class="botao">
-                        <a href="@Url.Action("DetalhesProduto", "Produto", new { Prod_Cod = item.Prod_Cod })">Detalhes</a>
-                    </button>
-                </td>
-            </tr>
-        }
-
-    </table>
-
+                                @Html.DisplayFor(modelItem => descTrimmed);
+                            }...
+                        </p>
+                        <p class="prod-preco">R$@Html.DisplayFor(modelItem => item.Prod_Val)</p>
+                        <a class="prod-link" href="@Url.Action("DetalhesProduto", "Produto", new { Prod_Cod = item.Prod_Cod })">Detalhes</a>
+                    </div><!--prod-single-info-->
+                </div><!--prod-single-->
+            }
+        </div><!--container-prod-->
+    </div>
 </div>
 
 

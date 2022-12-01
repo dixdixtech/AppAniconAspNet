@@ -164,12 +164,14 @@
     <Compile Include="ViewModels\Cliente\LoginViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\all.min.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\css\Estilo.css" />
     <Content Include="Content\css\EstiloTeste.css" />
+    <Content Include="Content\fontawesome.min.css" />
     <Content Include="Content\Images\098aafc6e51a4d5d78150f18c29cc3a4.jpg" />
     <Content Include="Content\Images\135edfdc7fff7432b7151b480acb2587.jpg" />
     <Content Include="Content\Images\19da0368afc4d50a9a946234c7116a47.jpg" />
@@ -183,6 +185,7 @@
     <Content Include="Content\Images\9af49863fca1372b8e771ef128997057.jpg" />
     <Content Include="Content\Images\9f703eef0accc3a395f28a81dc04b9b8.png" />
     <Content Include="Content\Images\bandana.jpg" />
+    <Content Include="Content\Images\banner.png" />
     <Content Include="Content\Images\bolsabnha.jpg" />
     <Content Include="Content\Images\c0367b393d03ca5a455d8f8de1734260.jpg" />
     <Content Include="Content\Images\camiseta_anicon.jpg" />
@@ -244,12 +247,18 @@
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.mask.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\script.js" />
+    <Content Include="slick\ajax-loader.gif" />
+    <Content Include="slick\fonts\slick.svg" />
+    <Content Include="slick\slick-theme.css" />
+    <Content Include="slick\slick.css" />
+    <Content Include="slick\slick.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -272,6 +281,18 @@
     <Content Include="Views\Produto\CadProdAnicon.cshtml" />
     <Content Include="Views\Produto\DetalhesProduto.cshtml" />
     <Content Include="Views\Home\DetalhesProduto.cshtml" />
+    <Content Include="webfonts\fa-brands-400.ttf" />
+    <Content Include="webfonts\fa-brands-400.woff2" />
+    <Content Include="webfonts\fa-regular-400.ttf" />
+    <Content Include="webfonts\fa-regular-400.woff2" />
+    <Content Include="webfonts\fa-solid-900.ttf" />
+    <Content Include="webfonts\fa-solid-900.woff2" />
+    <Content Include="webfonts\fa-v4compatibility.ttf" />
+    <Content Include="webfonts\fa-v4compatibility.woff2" />
+    <Content Include="slick\config.rb" />
+    <Content Include="slick\fonts\slick.eot" />
+    <Content Include="slick\fonts\slick.ttf" />
+    <Content Include="slick\fonts\slick.woff" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

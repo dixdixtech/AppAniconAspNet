@@ -4,69 +4,69 @@
     ViewBag.Title = "DetalhesProduto";
 }
 
-<h2>Detalhesdo Produto</h2>
+<div class="container-produto">
+    <div class="produto">
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Prod_Cod)
+            </dt>
 
-<div>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Prod_Cod)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Prod_Cod)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Prod_Cod)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Prod_Nome)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Prod_Nome)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Prod_Nome)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Prod_Nome)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Prod_Garant)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Prod_Garant)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Prod_Garant)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Prod_Garant)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Prod_Val)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Prod_Val)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Prod_Val)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Prod_Val)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Prod_QuantEstoq)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Prod_QuantEstoq)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Prod_QuantEstoq)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Prod_QuantEstoq)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Prod_Descri)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Prod_Descri)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Prod_Descri)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Prod_Descri)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Prod_Img)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Prod_Img)
-        </dt>
+            <dd>
+                <img src="@Html.DisplayFor(model => model.Prod_Img)" />
+            </dd>
 
-        <dd>
-            <img src="@Html.DisplayFor(model => model.Prod_Img)" />
-        </dd>
-
-    </dl>
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Voltar", "Index", "Home")
+    </p>
 </div>
-<p>
-    @Html.ActionLink("Voltar", "Index", "Home")
-</p>

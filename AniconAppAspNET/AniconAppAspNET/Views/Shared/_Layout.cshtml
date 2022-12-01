@@ -1,42 +1,43 @@
 ﻿<!DOCTYPE html>
-@*CERTO CERTO CERTO CERTO CERTO CERTO CERTO CERTO CERTO CERTO CERTO CERTO*@
-
 <html lang="pt-br">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <title>@ViewBag.Title - ANICON 2022</title>
     @Styles.Render("~/Content/Site.css")
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <link rel="icon" href="~/Content/Images/Logo.svg">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
-
+    <link rel="stylesheet" href="~/Content/fontawesome.min.css" />
+    <link rel="stylesheet" href="~/Content/all.min.css" />
+    <link rel="stylesheet" href="~/slick/slick-theme.css" />
 </head>
 <body>
-    <nav class="nav"  style="padding-right:20px">
+    <nav class="nav" style="padding-right:20px">
         <div class="menu-icon">
             <span class="fas fa-bars"></span>
         </div>
         <div class="logo" style="font-family: Limelig">
             ANICON
         </div>
-        <div class="nav-items" >
-            <li><a href='@Url.Action("Index", "Home")'>Página Inicial</a></li>
-            @*<li><a href='@Url.Action("Perfil", "Home")'>Perfil</a></li>*@
-            @if (User.Identity.IsAuthenticated)
-            {
-                @*<li><a href='@Url.Action("DetalhesProduto", "Produto")'>Detalhes Produto</a></li>*@
-                <li><a href='@Url.Action("CadProdAnicon", "Produto")'>Cadastrar Produto</a></li>
-                <li>@Html.ActionLink("Alterar Senha", "Alterarsenha", "Autenticacao")</li>
-                <li>@Html.ActionLink(@User.Identity.Name, "", "")</li>
-                <li>@Html.ActionLink("Sair", "Logout", "Autenticacao")</li>
-            }
-            else
-            {
-                <li><a href='@Url.Action("Insert", "Autenticacao")'>Cadastrar</a></li>
-                <li><a href='@Url.Action("Login", "Autenticacao")'>Login</a></li>
-            }
+        <div>
+            <ul class="nav-items">
+                <li><a href='@Url.Action("Index", "Home")'>Página Inicial</a></li>
+                @*<li><a href='@Url.Action("Perfil", "Home")'>Perfil</a></li>*@
+                @if (User.Identity.IsAuthenticated)
+                {
+                    @*<li><a href='@Url.Action("DetalhesProduto", "Produto")'>Detalhes Produto</a></li>*@
+                    <li><a href='@Url.Action("CadProdAnicon", "Produto")'>Cadastrar Produto</a></li>
+                    <li>@Html.ActionLink("Alterar Senha", "Alterarsenha", "Autenticacao")</li>
+                    <li>@Html.ActionLink(@User.Identity.Name, "", "")</li>
+                    <li>@Html.ActionLink("Sair", "Logout", "Autenticacao")</li>
+                }
+                else
+                {
+                    <li><a href='@Url.Action("Insert", "Autenticacao")'>Cadastrar</a></li>
+                    <li><a href='@Url.Action("Login", "Autenticacao")'>Login</a></li>
+                }
+            </ul>
         </div>
         <div class="search-icon">
             <span class="fas fa-search"></span>
@@ -46,19 +47,14 @@
         </div>
         @using (Html.BeginForm("Index", "Home", FormMethod.Get))
         {
-                <input name="search" id="search" type="search" class="search-data" placeholder="Buscar produtos" required=required />
-                <button type="submit" class="fas fa-search"></button>
+            <input name="search" id="search" type="search" class="search-data" placeholder="Buscar produtos" required=required />
+            <button type="submit" class="fas fa-search"></button>
         }
     </nav>
     @*ATUALIZADO*@
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
-    <br />    <br />
-    <br />
-    <br />
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
     <footer class="footer">
         <div class="container">
             <div class="row">
@@ -74,14 +70,14 @@
                 <div class="footer-col centrooo">
                     <h4>Fale conosco</h4>
                     <ul>
-                        <li><a href="mailto:dix.dixtech@gmail.com" style=" text-transform: lowercase; text-decoration:underline">dix.dixtech@gmail.com</a></li>
-                        <li><a href='@Url.Action("Index", "Home")'>Página Inicial</a></li>
+                        <li><a href="mailto:dix.dixtech@gmail.com" style=" text-transform: lowercase;">dix.dixtech@gmail.com</a></li>
+                        <li><a href='https://wa.me/+5511952909157'>+55 11 95290-9157 <i class="fa-brands fa-whatsapp"></i> | <i class="fa-solid fa-phone"></i></a></li>
                         <li><a href='@Url.Action("Index", "Home")'>Página Inicial</a></li>
                         <li><a href='@Url.Action("Index", "Home")'>Página Inicial</a></li>
                     </ul>
                 </div>
                 <div class="footer-col centrooo">
-                    <h4>Categorias</h4>
+                    <h4>Empresa</h4>
                     <ul>
                         <li><a href='@Url.Action("Index", "Home")'>Página Inicial</a></li>
                         <li><a href='@Url.Action("Index", "Home")'>Página Inicial</a></li>
@@ -101,9 +97,11 @@
             </div>
         </div>
     </footer>
-    @Scripts.Render("~/Scripts/script.js")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/slick/slick.min.js")
+    @Scripts.Render("~/Scripts/jquery.mask.js")
+    @Scripts.Render("~/Scripts/script.js")
     @RenderSection("scripts", required: false)
 </body>
 </html>
