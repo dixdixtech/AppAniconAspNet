@@ -31,7 +31,7 @@
                         <p class="prod-nome">
                             @for (var i = 0; i < 1; i++)
                             {
-                                var descTrimmed = item.Prod_Nome.Substring(0, 19);
+                                var descTrimmed = item.Prod_Nome;
 
                                 @Html.DisplayFor(modelItem => descTrimmed);
                             }...

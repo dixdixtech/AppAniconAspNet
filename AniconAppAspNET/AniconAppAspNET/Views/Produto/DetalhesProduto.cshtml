@@ -10,15 +10,15 @@
         <div class="produto-wraper">
             <div class="img-slider">
                 <div class="container-img-slider">
-                    <img src="@Html.DisplayFor(model => model.Prod_Img)" alt="imagem do produto">
-                    <img src="@Html.DisplayFor(model => model.Prod_Img)" alt="imagem do produto">
+                    <img src="@Html.DisplayFor(model => model.Prod_Img)" alt="imagem do produto" class="borda-preta">
+                    <img src="@Html.DisplayFor(model => model.Prod_Img)" alt="imagem do produto" class="borda-preta">
                 </div><!--container-img-slider-->
                 <div class="img-slider-nav">
-                    <img src="@Html.DisplayFor(model => model.Prod_Img)" alt="imagem do produto">
-                    <img src="@Html.DisplayFor(model => model.Prod_Img)" alt="imagem do produto">
+                    <img src="@Html.DisplayFor(model => model.Prod_Img)" alt="imagem do produto" class="borda-preta">
+                    <img src="@Html.DisplayFor(model => model.Prod_Img)" alt="imagem do produto" class="borda-preta">
                 </div>
             </div><!--img-slider-->
-            <div class="produto-info">
+            <div class="produto-info  borda-preta">
                 <p>@Html.DisplayFor(model => model.Prod_Descri)</p>
                 <div class="preco">
                     <div class="preco-left">
@@ -28,70 +28,18 @@
                         <p>Estoque: @Html.DisplayFor(model => model.Prod_QuantEstoq)</p>
                     </div><!--preco-right-->
                 </div>
+                <div class="preco">
+                    <div class="preco-left">
+                        <p>Garantia: @Html.DisplayFor(model => model.Prod_Garant)</p>
+                    </div><!--preco-left-->
+                </div>
             </div><!--produto-info-->
         </div><!--produto-wraper-->
+        <center>
+            <p>
+                @Html.ActionLink("Voltar", "Index", "Home")
+            </p>
+        </center>
     </div><!--container-->
 </section><!--produto-page-->
 
-
-@*<div class="container">
-    <div class="produto">
-        <h3>@Html.DisplayFor(model => model.Prod_Nome)</h3>
-        <hr />
-        <dl class="dl-horizontal">
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Prod_Nome)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Prod_Nome)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Prod_Garant)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Prod_Garant)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Prod_Val)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Prod_Val)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Prod_QuantEstoq)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Prod_QuantEstoq)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Prod_Descri)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Prod_Descri)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Prod_Img)
-            </dt>
-
-            <dd>
-                <img src="@Html.DisplayFor(model => model.Prod_Img)" />
-            </dd>
-
-        </dl>
-    </div>
-    <p>
-
-        @Html.ActionLink("Voltar", "Index", "Home")
-    </p>
-</div>*@

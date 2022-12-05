@@ -723,3 +723,8 @@ div.backBtn:hover span.bLine {
         font-size: 19px;
     }
 }
+
+.borda-preta {
+    border: solid 0.5px black;
+    padding: 7px;
+}

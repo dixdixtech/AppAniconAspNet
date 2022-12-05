@@ -28,7 +28,7 @@
                 {
                     @*<li><a href='@Url.Action("DetalhesProduto", "Produto")'>Detalhes Produto</a></li>*@
                     <li><a href='@Url.Action("CadProdAnicon", "Produto")'>Cadastrar Produto</a></li>
-                    <li>@Html.ActionLink("Alterar Senha", "Alterarsenha", "Autenticacao")</li>
+                    <li>@Html.ActionLink("Alterar Senha", "Alterarsenha", "Autenticacao") </li>
                     <li>@Html.ActionLink(@User.Identity.Name, "", "")</li>
                     <li>@Html.ActionLink("Sair", "Logout", "Autenticacao")</li>
                 }
@@ -64,6 +64,8 @@
                         <li><a href='@Url.Action("Index", "Home")'>Página Inicial</a></li>
                         <li><a href='@Url.Action("Insert", "Autenticacao")'>Cadastrar conta</a></li>
                         <li><a href='@Url.Action("Login", "Autenticacao")'>Logar na conta</a></li>
+                        <li><a href='@Url.Action("Alterarsenha", "Autenticacao")'>Logar na conta</a></li>
+                        <li><a href='@Url.Action("CadProdAnicon", "Produto")'>Cadastrar produto</a></li>
                     </ul>
                 </div>
                 <div class="footer-col centrooo">
@@ -74,21 +76,11 @@
                     </ul>
                 </div>
                 <div class="footer-col centrooo">
-                    <h4>Loja</h4>
+                    <h4>Empresa</h4>
                     <ul>
-                        @if (User.Identity.IsAuthenticated)
-                        {
-                            @*<li><a href='@Url.Action("DetalhesProduto", "Produto")'>Detalhes Produto</a></li>*@
-                            <li><a href='@Url.Action("Insert", "Autenticacao")'>Cadastrar conta</a></li>
-                            <li><a href='@Url.Action("Login", "Autenticacao")'>Logar na conta</a></li>
-                            <li><a href='@Url.Action("Logout", "Autenticacao")'>Sair da conta</a></li>
-                            <li><a href='@Url.Action("Alterarsenha", "Autenticacao")'>Alterar senha</a></li>
-                        }
-                        else
-                        {
-                            <li><a href='@Url.Action("Insert", "Autenticacao")'>Cadastrar conta</a></li>
-                            <li><a href='@Url.Action("Login", "Autenticacao")'>Logar na conta</a></li>
-                        }
+                        <li><a href='@Url.Action("Index", "Home")'>Página Inicial</a></li>
+                        <li><a href='@Url.Action("Index", "Home")'>Página Inicial</a></li>
+                        <li><a href='@Url.Action("Index", "Home")'>Página Inicial</a></li>
 
                     </ul>
                 </div>
@@ -112,3 +104,4 @@
     @RenderSection("scripts", required: false)
 </body>
 </html>
+
